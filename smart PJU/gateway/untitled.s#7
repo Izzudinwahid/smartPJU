@@ -19649,7 +19649,6 @@ Source: 008-0260-0_E.pdf</description>
 <part name="MINI1" library="mini360" deviceset="MINI360" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10uF"/>
-<part name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -19840,10 +19839,6 @@ Source: 008-0260-0_E.pdf</description>
 <attribute name="NAME" x="194.056" y="235.839" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="194.056" y="240.919" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C14" gate="G$1" x="190.5" y="236.22" smashed="yes" rot="R180">
-<attribute name="NAME" x="188.976" y="235.839" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="188.976" y="240.919" size="1.778" layer="96" rot="R180"/>
-</instance>
 </instances>
 <busses>
 </busses>
@@ -20007,19 +20002,11 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="MINI1" gate="G$1" pin="IN-"/>
 <wire x1="203.2" y1="231.14" x2="226.06" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="231.14" x2="226.06" y2="233.68" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="231.14" x2="195.58" y2="231.14" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="231.14" x2="193.04" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="231.14" x2="193.04" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="231.14" x2="193.04" y2="210.82" width="0.1524" layer="91"/>
 <junction x="203.2" y="231.14"/>
 <wire x1="193.04" y1="210.82" x2="198.12" y2="210.82" width="0.1524" layer="91"/>
 <junction x="198.12" y="210.82"/>
-<pinref part="C13" gate="G$1" pin="1"/>
-<wire x1="195.58" y1="233.68" x2="195.58" y2="231.14" width="0.1524" layer="91"/>
-<junction x="195.58" y="231.14"/>
-<pinref part="C14" gate="G$1" pin="1"/>
-<wire x1="193.04" y1="231.14" x2="190.5" y2="231.14" width="0.1524" layer="91"/>
-<wire x1="190.5" y1="231.14" x2="190.5" y2="233.68" width="0.1524" layer="91"/>
-<junction x="193.04" y="231.14"/>
 </segment>
 </net>
 <net name="SCK_VSPI" class="0">
@@ -20482,11 +20469,8 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="203.2" y1="236.22" x2="203.2" y2="241.3" width="0.1524" layer="91"/>
 <wire x1="203.2" y1="241.3" x2="195.58" y2="241.3" width="0.1524" layer="91"/>
 <pinref part="C13" gate="G$1" pin="2"/>
-<wire x1="195.58" y1="241.3" x2="190.5" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="241.3" x2="180.34" y2="241.3" width="0.1524" layer="91"/>
 <junction x="195.58" y="241.3"/>
-<pinref part="C14" gate="G$1" pin="2"/>
-<wire x1="190.5" y1="241.3" x2="180.34" y2="241.3" width="0.1524" layer="91"/>
-<junction x="190.5" y="241.3"/>
 </segment>
 </net>
 </nets>
