@@ -19593,7 +19593,7 @@ Source: 008-0260-0_E.pdf</description>
 </variantdefs>
 <classes>
 <class number="0" name="default" width="0" drill="0">
-<clearance class="0" value="0.0254"/>
+<clearance class="0" value="0.0508"/>
 </class>
 </classes>
 <parts>

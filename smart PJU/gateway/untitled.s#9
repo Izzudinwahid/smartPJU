@@ -20455,6 +20455,15 @@ Source: 008-0260-0_E.pdf</description>
 <label x="198.12" y="215.9" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="MINI1" gate="G$1" pin="OUT+"/>
+<wire x1="203.2" y1="236.22" x2="180.34" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="236.22" x2="180.34" y2="220.98" width="0.1524" layer="91"/>
+<pinref part="SIM800L1" gate="G$1" pin="VCC"/>
+<wire x1="180.34" y1="220.98" x2="200.66" y2="220.98" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>

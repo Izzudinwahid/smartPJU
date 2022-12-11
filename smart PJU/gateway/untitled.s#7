@@ -20002,11 +20002,15 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="MINI1" gate="G$1" pin="IN-"/>
 <wire x1="203.2" y1="231.14" x2="226.06" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="231.14" x2="226.06" y2="233.68" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="231.14" x2="193.04" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="231.14" x2="195.58" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="231.14" x2="193.04" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="231.14" x2="193.04" y2="210.82" width="0.1524" layer="91"/>
 <junction x="203.2" y="231.14"/>
 <wire x1="193.04" y1="210.82" x2="198.12" y2="210.82" width="0.1524" layer="91"/>
 <junction x="198.12" y="210.82"/>
+<pinref part="C13" gate="G$1" pin="1"/>
+<wire x1="195.58" y1="233.68" x2="195.58" y2="231.14" width="0.1524" layer="91"/>
+<junction x="195.58" y="231.14"/>
 </segment>
 </net>
 <net name="SCK_VSPI" class="0">
