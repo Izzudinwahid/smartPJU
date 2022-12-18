@@ -2532,8 +2532,8 @@ design rules under a new name.</description>
 <attribute name="DESCRIPTION" value=" Optoisolator Transistor Output 5000Vrms 1 Channel 4-SMD " x="31.61539375" y="-44.602234375" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Sharp Microelectronics" x="31.61539375" y="-44.602234375" size="1.778" layer="27" display="off"/>
 <attribute name="MP" value="PC817X2NIP0F" x="31.61539375" y="-44.602234375" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="4.6835625" y="42.319784375" size="1.27083125" layer="25"/>
 <attribute name="NAME" x="4.680153125" y="42.323565625" size="1.27238125" layer="25"/>
+<attribute name="NAME" x="4.6835625" y="42.319784375" size="1.27083125" layer="25"/>
 <attribute name="PACKAGE" value="SMD-4 Sharp Microelectronics" x="31.61539375" y="-44.602234375" size="1.778" layer="27" display="off"/>
 <attribute name="PRICE" value="None" x="31.61539375" y="-44.602234375" size="1.778" layer="27" display="off"/>
 </element>
@@ -3360,8 +3360,7 @@ design rules under a new name.</description>
 <contactref element="J2" pad="1"/>
 <contactref element="D2" pad="A"/>
 <wire x1="37.4968" y1="75.48068125" x2="37.4968" y2="74.505403125" width="0.254" layer="1"/>
-<wire x1="38.31071875" y1="70.96393125" x2="31.7998" y2="70.96393125" width="0.254" layer="1"/>
-<wire x1="31.7998" y1="70.96393125" x2="29.654346875" y2="73.109384375" width="0.254" layer="1"/>
+<wire x1="29.654346875" y1="73.109384375" x2="31.7998" y2="70.96393125" width="0.254" layer="1"/>
 <wire x1="29.654346875" y1="73.109384375" x2="25.50793125" y2="73.109384375" width="0.254" layer="1"/>
 <wire x1="25.50793125" y1="73.109384375" x2="25.395940625" y2="72.99739375" width="0.254" layer="1"/>
 <wire x1="58.399846875" y1="32.999515625" x2="57.100734375" y2="34.298628125" width="0.254" layer="16"/>
@@ -3374,7 +3373,8 @@ design rules under a new name.</description>
 <wire x1="59.636225" y1="76.4121" x2="43.529009375" y2="76.4121" width="0.254" layer="1"/>
 <wire x1="43.529009375" y1="76.4121" x2="42.224628125" y2="75.10771875" width="0.254" layer="1"/>
 <wire x1="42.224628125" y1="75.10771875" x2="42.224628125" y2="73.22695" width="0.254" layer="1"/>
-<wire x1="42.224628125" y1="73.22695" x2="41.344753125" y2="72.347075" width="0.254" layer="1"/>
+<wire x1="42.224628125" y1="73.22695" x2="41.349275" y2="72.351596875" width="0.254" layer="1"/>
+<wire x1="41.349275" y1="72.351596875" x2="41.344753125" y2="72.347075" width="0.254" layer="1"/>
 <wire x1="30.655771875" y1="64.255953125" x2="30.655771875" y2="60.29985625" width="0.254" layer="16"/>
 <wire x1="30.655771875" y1="60.29985625" x2="29.575440625" y2="59.219525" width="0.254" layer="16"/>
 <wire x1="29.575440625" y1="59.219525" x2="22.4777375" y2="59.219525" width="0.254" layer="16"/>
@@ -3396,8 +3396,11 @@ design rules under a new name.</description>
 <wire x1="25.395940625" y1="72.99739375" x2="24.039534375" y2="72.99739375" width="0.254" layer="1"/>
 <wire x1="23.546028125" y1="73.4909" x2="23.546028125" y2="74.83428125" width="0.254" layer="1"/>
 <wire x1="24.039534375" y1="72.99739375" x2="23.546028125" y2="73.4909" width="0.254" layer="1"/>
-<wire x1="38.31071875" y1="70.96393125" x2="37.4968" y2="74.505403125" width="0" layer="19" extent="1-1"/>
-<wire x1="41.344753125" y1="72.347075" x2="38.31071875" y2="70.96393125" width="0" layer="19" extent="1-1"/>
+<wire x1="39.959759375" y1="72.351596875" x2="41.349275" y2="72.351596875" width="0.254" layer="1"/>
+<wire x1="31.7998" y1="70.96393125" x2="38.57209375" y2="70.96393125" width="0.254" layer="1"/>
+<wire x1="38.57209375" y1="70.96393125" x2="39.959759375" y2="72.351596875" width="0.254" layer="1"/>
+<wire x1="37.4968" y1="74.505403125" x2="39.65060625" y2="72.351596875" width="0.254" layer="1"/>
+<wire x1="39.65060625" y1="72.351596875" x2="39.959759375" y2="72.351596875" width="0.254" layer="1"/>
 </signal>
 <signal name="N$104">
 <contactref element="U19" pad="4"/>
