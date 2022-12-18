@@ -19746,8 +19746,6 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="-9" y1="-12.75" x2="-9" y2="6.45" width="0.127" layer="51"/>
 <wire x1="-9" y1="12.75" x2="-9" y2="6.45" width="0.127" layer="51"/>
 <wire x1="-9" y1="6.45" x2="9" y2="6.45" width="0.127" layer="51"/>
-<rectangle x1="-9" y1="6.45" x2="9" y2="12.75" layer="41"/>
-<rectangle x1="-9" y1="6.45" x2="9" y2="12.75" layer="43"/>
 <text x="-6" y="9" size="1.778" layer="51">ANTENNA</text>
 <circle x="-10" y="5.25" radius="0.1" width="0.2" layer="51"/>
 <circle x="-10" y="5.25" radius="0.1" width="0.2" layer="21"/>
@@ -21093,9 +21091,18 @@ Source: 008-0260-0_E.pdf</description>
 <approved hash="208,1,111.76,167.64,GND,sup,,,,"/>
 <approved hash="208,1,231.14,320.04,GND,sup,,,,"/>
 <approved hash="110,1,71.12,325.12,GND,VCC_USB,,,,"/>
+<approved hash="113,1,133.198,200.508,FRAME1,,,,,"/>
 <approved hash="113,1,11.43,256.54,LORA-NICERF-V1,,,,,"/>
 <approved hash="113,1,147.32,326.095,S1,,,,,"/>
 <approved hash="113,1,147.32,308.315,S2,,,,,"/>
+<approved hash="113,1,134.175,254,TB7.1,,,,,"/>
+<approved hash="113,1,129.984,190.5,TB7.2,,,,,"/>
+<approved hash="113,1,194.31,204.47,PZEM004T1,,,,,"/>
+<approved hash="113,1,170.18,213.805,TB7.3,,,,,"/>
+<approved hash="113,1,157.48,213.805,TB7.4,,,,,"/>
+<approved hash="113,1,194.31,181.61,MINI1,,,,,"/>
+<approved hash="113,1,193.04,161.29,SIM800L1,,,,,"/>
+<approved hash="113,1,132.08,161.29,RTC1,,,,,"/>
 </errors>
 </schematic>
 </drawing>

@@ -19925,6 +19925,46 @@ Source: 008-0260-0_E.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="FUSE-KOTAK">
+<packages>
+<package name="FUSE-KOTAK">
+<pad name="1" x="-5.54" y="-0.62" drill="0.85"/>
+<pad name="2" x="-0.46" y="-0.62" drill="0.85"/>
+<wire x1="-7" y1="1" x2="1" y2="1" width="0.1524" layer="21"/>
+<wire x1="1" y1="1" x2="1" y2="-2" width="0.1524" layer="21"/>
+<wire x1="1" y1="-2" x2="-7" y2="-2" width="0.1524" layer="21"/>
+<wire x1="-7" y1="-2" x2="-7" y2="1" width="0.1524" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="FUSE-KOTAK">
+<wire x1="-7.62" y1="5.08" x2="-7.62" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-7.62" y2="5.08" width="0.1524" layer="94"/>
+<pin name="1" x="-12.7" y="2.54" length="middle"/>
+<pin name="2" x="-12.7" y="0" length="middle"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="FUSE-KOTAK" prefix="FUSE-KOTAK" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="FUSE-KOTAK" x="5.08" y="0"/>
+</gates>
+<devices>
+<device name="" package="FUSE-KOTAK">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -20006,6 +20046,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U3" library="ESP32-WROOM-32D" deviceset="ESP32-WROOM-32D" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="FUSE-KOTAK1" library="FUSE-KOTAK" deviceset="FUSE-KOTAK" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20206,7 +20247,7 @@ Source: 008-0260-0_E.pdf</description>
 <attribute name="NAME" x="45.21513125" y="186.42973125" size="1.780740625" layer="95" rot="R180"/>
 <attribute name="VALUE" x="45.21368125" y="194.31315" size="1.77946875" layer="96" rot="R180"/>
 </instance>
-<instance part="TB7.1" gate="G$1" x="129.54" y="254" smashed="yes" rot="R90"/>
+<instance part="TB7.1" gate="G$1" x="124.46" y="254" smashed="yes" rot="R90"/>
 <instance part="TB7.2" gate="G$1" x="134.62" y="190.5" smashed="yes" rot="R270"/>
 <instance part="PZEM004T1" gate="G$1" x="193.04" y="205.74" smashed="yes"/>
 <instance part="GND6" gate="1" x="218.44" y="205.74" smashed="yes">
@@ -20252,6 +20293,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND10" gate="1" x="231.14" y="317.5" smashed="yes">
 <attribute name="VALUE" x="228.6" y="314.96" size="1.778" layer="96"/>
 </instance>
+<instance part="FUSE-KOTAK1" gate="G$1" x="139.7" y="274.32" smashed="yes" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -20848,9 +20890,9 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="PS1" gate="G$1" pin="AC1"/>
 <pinref part="C12" gate="G$1" pin="P"/>
 <wire x1="147.32" y1="259.08" x2="142.24" y2="259.08" width="0.1524" layer="91"/>
-<pinref part="TB7.1" gate="G$1" pin="T2"/>
-<wire x1="142.24" y1="259.08" x2="137.16" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="259.08" x2="137.16" y2="256.54" width="0.1524" layer="91"/>
+<pinref part="FUSE-KOTAK1" gate="G$1" pin="2"/>
+<wire x1="142.24" y1="259.08" x2="139.7" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="259.08" x2="139.7" y2="261.62" width="0.1524" layer="91"/>
 <junction x="142.24" y="259.08"/>
 </segment>
 </net>
@@ -20862,7 +20904,7 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="147.32" y1="251.46" x2="142.24" y2="251.46" width="0.1524" layer="91"/>
 <junction x="142.24" y="251.46"/>
 <pinref part="TB7.1" gate="G$1" pin="T1"/>
-<wire x1="142.24" y1="251.46" x2="137.16" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="251.46" x2="132.08" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -21063,6 +21105,14 @@ Source: 008-0260-0_E.pdf</description>
 <junction x="175.26" y="185.42"/>
 </segment>
 </net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="FUSE-KOTAK1" gate="G$1" pin="1"/>
+<pinref part="TB7.1" gate="G$1" pin="T2"/>
+<wire x1="137.16" y1="261.62" x2="132.08" y2="261.62" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="261.62" x2="132.08" y2="256.54" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -21091,9 +21141,18 @@ Source: 008-0260-0_E.pdf</description>
 <approved hash="208,1,111.76,167.64,GND,sup,,,,"/>
 <approved hash="208,1,231.14,320.04,GND,sup,,,,"/>
 <approved hash="110,1,71.12,325.12,GND,VCC_USB,,,,"/>
+<approved hash="113,1,133.198,200.508,FRAME1,,,,,"/>
 <approved hash="113,1,11.43,256.54,LORA-NICERF-V1,,,,,"/>
 <approved hash="113,1,147.32,326.095,S1,,,,,"/>
 <approved hash="113,1,147.32,308.315,S2,,,,,"/>
+<approved hash="113,1,134.175,254,TB7.1,,,,,"/>
+<approved hash="113,1,129.984,190.5,TB7.2,,,,,"/>
+<approved hash="113,1,194.31,204.47,PZEM004T1,,,,,"/>
+<approved hash="113,1,170.18,213.805,TB7.3,,,,,"/>
+<approved hash="113,1,157.48,213.805,TB7.4,,,,,"/>
+<approved hash="113,1,194.31,181.61,MINI1,,,,,"/>
+<approved hash="113,1,193.04,161.29,SIM800L1,,,,,"/>
+<approved hash="113,1,132.08,161.29,RTC1,,,,,"/>
 </errors>
 </schematic>
 </drawing>

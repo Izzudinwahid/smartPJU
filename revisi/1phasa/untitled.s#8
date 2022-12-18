@@ -17009,255 +17009,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="Espressif Systems - ESP32-WROOM-32U (16MB)">
-<description>Upverter Parts Library
-
-Created by Upverter.com</description>
-<packages>
-<package name="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB_0">
-<description>Bluetooth, WiFi 802.11b/g/n, Bluetooth v4.2 +EDR, Class 1, 2 and 3 Transceiver Module 2.4GHz ~ 2.5GHz Antenna Not Included, U.FL Surface Mount</description>
-<wire x1="-9.075" y1="-9.675" x2="-9.075" y2="9.675" width="0.15" layer="51"/>
-<wire x1="-9.075" y1="9.675" x2="9.075" y2="9.675" width="0.15" layer="51"/>
-<wire x1="9.075" y1="9.675" x2="9.075" y2="-9.675" width="0.15" layer="51"/>
-<wire x1="9.075" y1="-9.675" x2="-9.075" y2="-9.675" width="0.15" layer="51"/>
-<wire x1="-9.075" y1="9.675" x2="9.075" y2="9.675" width="0.15" layer="21"/>
-<wire x1="9.075" y1="-9.675" x2="9.075" y2="-8.925" width="0.15" layer="21"/>
-<wire x1="9.075" y1="9.235" x2="9.075" y2="9.675" width="0.15" layer="21"/>
-<wire x1="-9.075" y1="-9.675" x2="-6.535" y2="-9.675" width="0.15" layer="21"/>
-<wire x1="6.545" y1="-9.675" x2="9.075" y2="-9.675" width="0.15" layer="21"/>
-<wire x1="-9.075" y1="-9.675" x2="-9.075" y2="-8.925" width="0.15" layer="21"/>
-<wire x1="-9.075" y1="9.235" x2="-9.075" y2="9.675" width="0.15" layer="21"/>
-<text x="-9.075" y="9.975" size="1" layer="25">&gt;NAME</text>
-<circle x="-10.075" y="8.41" radius="0.25" width="0" layer="21"/>
-<smd name="1" x="-8.75" y="8.41" dx="1.5" dy="0.9" layer="1"/>
-<smd name="2" x="-8.75" y="7.14" dx="1.5" dy="0.9" layer="1"/>
-<smd name="3" x="-8.75" y="5.87" dx="1.5" dy="0.9" layer="1"/>
-<smd name="4" x="-8.75" y="4.6" dx="1.5" dy="0.9" layer="1"/>
-<smd name="5" x="-8.75" y="3.33" dx="1.5" dy="0.9" layer="1"/>
-<smd name="6" x="-8.75" y="2.06" dx="1.5" dy="0.9" layer="1"/>
-<smd name="7" x="-8.75" y="0.79" dx="1.5" dy="0.9" layer="1"/>
-<smd name="8" x="-8.75" y="-0.48" dx="1.5" dy="0.9" layer="1"/>
-<smd name="9" x="-8.75" y="-1.75" dx="1.5" dy="0.9" layer="1"/>
-<smd name="10" x="-8.75" y="-3.02" dx="1.5" dy="0.9" layer="1"/>
-<smd name="11" x="-8.75" y="-4.29" dx="1.5" dy="0.9" layer="1"/>
-<smd name="12" x="-8.75" y="-5.56" dx="1.5" dy="0.9" layer="1"/>
-<smd name="13" x="-8.75" y="-6.83" dx="1.5" dy="0.9" layer="1"/>
-<smd name="14" x="-8.75" y="-8.1" dx="1.5" dy="0.9" layer="1"/>
-<smd name="25" x="8.75" y="-8.1" dx="1.5" dy="0.9" layer="1"/>
-<smd name="26" x="8.75" y="-6.83" dx="1.5" dy="0.9" layer="1"/>
-<smd name="27" x="8.75" y="-5.56" dx="1.5" dy="0.9" layer="1"/>
-<smd name="28" x="8.75" y="-4.29" dx="1.5" dy="0.9" layer="1"/>
-<smd name="29" x="8.75" y="-3.02" dx="1.5" dy="0.9" layer="1"/>
-<smd name="30" x="8.75" y="-1.75" dx="1.5" dy="0.9" layer="1"/>
-<smd name="31" x="8.75" y="-0.48" dx="1.5" dy="0.9" layer="1"/>
-<smd name="32" x="8.75" y="0.79" dx="1.5" dy="0.9" layer="1"/>
-<smd name="33" x="8.75" y="2.06" dx="1.5" dy="0.9" layer="1"/>
-<smd name="34" x="8.75" y="3.33" dx="1.5" dy="0.9" layer="1"/>
-<smd name="35" x="8.75" y="4.6" dx="1.5" dy="0.9" layer="1"/>
-<smd name="36" x="8.75" y="5.87" dx="1.5" dy="0.9" layer="1"/>
-<smd name="37" x="8.75" y="7.14" dx="1.5" dy="0.9" layer="1"/>
-<smd name="38" x="8.75" y="8.41" dx="1.5" dy="0.9" layer="1"/>
-<smd name="15" x="-5.71" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="16" x="-4.44" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="17" x="-3.17" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="18" x="-1.9" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="19" x="-0.63" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="20" x="0.64" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="21" x="1.91" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="22" x="3.18" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="23" x="4.45" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="24" x="5.72" y="-9.35" dx="0.9" dy="1.5" layer="1"/>
-<smd name="39" x="-2.9" y="2.09" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-2" x="-1.5" y="0.69" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-3" x="-1.5" y="2.09" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-4" x="-0.1" y="2.09" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-5" x="-0.1" y="-0.71" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-6" x="-1.5" y="-0.71" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-7" x="-2.9" y="-0.71" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-8" x="-0.1" y="0.69" dx="0.9" dy="0.9" layer="1"/>
-<smd name="39-9" x="-2.9" y="0.69" dx="0.9" dy="0.9" layer="1"/>
-</package>
-</packages>
-<symbols>
-<symbol name="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB_0_0">
-<description>Bluetooth, WiFi 802.11b/g/n, Bluetooth v4.2 +EDR, Class 1, 2 and 3 Transceiver Module 2.4GHz ~ 2.5GHz Antenna Not Included, U.FL Surface Mount</description>
-<wire x1="2.54" y1="-73.66" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="38.1" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="38.1" y1="-5.08" x2="38.1" y2="-73.66" width="0.254" layer="94"/>
-<wire x1="38.1" y1="-73.66" x2="2.54" y2="-73.66" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-7.62" x2="2.54" y2="-7.62" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-15.24" x2="38.1" y2="-15.24" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-17.78" x2="38.1" y2="-17.78" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-17.78" x2="2.54" y2="-17.78" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-20.32" x2="2.54" y2="-20.32" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-22.86" x2="2.54" y2="-22.86" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-25.4" x2="2.54" y2="-25.4" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-27.94" x2="2.54" y2="-27.94" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-30.48" x2="2.54" y2="-30.48" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-33.02" x2="2.54" y2="-33.02" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-35.56" x2="2.54" y2="-35.56" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-38.1" x2="2.54" y2="-38.1" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-40.64" x2="2.54" y2="-40.64" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-43.18" x2="2.54" y2="-43.18" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-45.72" x2="2.54" y2="-45.72" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-48.26" x2="2.54" y2="-48.26" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-50.8" x2="2.54" y2="-50.8" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-53.34" x2="2.54" y2="-53.34" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-55.88" x2="2.54" y2="-55.88" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-58.42" x2="2.54" y2="-58.42" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-60.96" x2="2.54" y2="-60.96" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-63.5" x2="2.54" y2="-63.5" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-66.04" x2="2.54" y2="-66.04" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-68.58" x2="2.54" y2="-68.58" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-71.12" x2="2.54" y2="-71.12" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-22.86" x2="38.1" y2="-22.86" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-35.56" x2="38.1" y2="-35.56" width="0.15" layer="94"/>
-<wire x1="2.54" y1="-12.7" x2="2.54" y2="-12.7" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-48.26" x2="38.1" y2="-48.26" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-7.62" x2="38.1" y2="-7.62" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-10.16" x2="38.1" y2="-10.16" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-27.94" x2="38.1" y2="-27.94" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-30.48" x2="38.1" y2="-30.48" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-40.64" x2="38.1" y2="-40.64" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-43.18" x2="38.1" y2="-43.18" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-63.5" x2="38.1" y2="-63.5" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-66.04" x2="38.1" y2="-66.04" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-68.58" x2="38.1" y2="-68.58" width="0.15" layer="94"/>
-<wire x1="38.1" y1="-71.12" x2="38.1" y2="-71.12" width="0.15" layer="94"/>
-<text x="2.54" y="-2.54" size="2.54" layer="95" align="top-left">&gt;NAME</text>
-<text x="2.54" y="-76.2" size="2.54" layer="95" align="top-left">ESP32-WROOM-32U (16MB)</text>
-<pin name="3V3" x="-2.54" y="-7.62" length="middle" direction="pwr"/>
-<pin name="SENSOR_VN" x="43.18" y="-15.24" length="middle" direction="in" rot="R180"/>
-<pin name="SENSOR_VP" x="43.18" y="-17.78" length="middle" direction="in" rot="R180"/>
-<pin name="IO0" x="-2.54" y="-17.78" length="middle"/>
-<pin name="IO2" x="-2.54" y="-20.32" length="middle"/>
-<pin name="IO4" x="-2.54" y="-22.86" length="middle"/>
-<pin name="IO5" x="-2.54" y="-25.4" length="middle"/>
-<pin name="IO12" x="-2.54" y="-27.94" length="middle"/>
-<pin name="IO13" x="-2.54" y="-30.48" length="middle"/>
-<pin name="IO14" x="-2.54" y="-33.02" length="middle"/>
-<pin name="IO15" x="-2.54" y="-35.56" length="middle"/>
-<pin name="IO16" x="-2.54" y="-38.1" length="middle"/>
-<pin name="IO17" x="-2.54" y="-40.64" length="middle"/>
-<pin name="IO18" x="-2.54" y="-43.18" length="middle"/>
-<pin name="IO19" x="-2.54" y="-45.72" length="middle"/>
-<pin name="IO21" x="-2.54" y="-48.26" length="middle"/>
-<pin name="IO22" x="-2.54" y="-50.8" length="middle"/>
-<pin name="IO23" x="-2.54" y="-53.34" length="middle"/>
-<pin name="IO25" x="-2.54" y="-55.88" length="middle"/>
-<pin name="IO26" x="-2.54" y="-58.42" length="middle"/>
-<pin name="IO27" x="-2.54" y="-60.96" length="middle"/>
-<pin name="IO32" x="-2.54" y="-63.5" length="middle"/>
-<pin name="IO33" x="-2.54" y="-66.04" length="middle"/>
-<pin name="IO34" x="-2.54" y="-68.58" length="middle"/>
-<pin name="IO35" x="-2.54" y="-71.12" length="middle"/>
-<pin name="CLK" x="43.18" y="-22.86" length="middle" rot="R180"/>
-<pin name="CMD" x="43.18" y="-35.56" length="middle" rot="R180"/>
-<pin name="EN" x="-2.54" y="-12.7" length="middle" direction="in"/>
-<pin name="NC" x="43.18" y="-48.26" length="middle" direction="pas" rot="R180"/>
-<pin name="RXD0" x="43.18" y="-7.62" length="middle" rot="R180"/>
-<pin name="TXD0" x="43.18" y="-10.16" length="middle" rot="R180"/>
-<pin name="SD0" x="43.18" y="-27.94" length="middle" rot="R180"/>
-<pin name="SD1" x="43.18" y="-30.48" length="middle" rot="R180"/>
-<pin name="SD2" x="43.18" y="-40.64" length="middle" rot="R180"/>
-<pin name="SD3" x="43.18" y="-43.18" length="middle" rot="R180"/>
-<pin name="1_GND" x="43.18" y="-63.5" length="middle" direction="pwr" rot="R180"/>
-<pin name="2_GND" x="43.18" y="-66.04" length="middle" direction="pwr" rot="R180"/>
-<pin name="3_GND" x="43.18" y="-68.58" length="middle" direction="pwr" rot="R180"/>
-<pin name="4_GND" x="43.18" y="-71.12" length="middle" direction="pwr" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB" prefix="MD">
-<description>Bluetooth, WiFi 802.11b/g/n, Bluetooth v4.2 +EDR, Class 1, 2 and 3 Transceiver Module 2.4GHz ~ 2.5GHz Antenna Not Included, U.FL Surface Mount</description>
-<gates>
-<gate name="G$0" symbol="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB_0_0" x="0" y="0"/>
-</gates>
-<devices>
-<device name="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB_0_0" package="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB_0">
-<connects>
-<connect gate="G$0" pin="1_GND" pad="1"/>
-<connect gate="G$0" pin="2_GND" pad="15"/>
-<connect gate="G$0" pin="3V3" pad="2"/>
-<connect gate="G$0" pin="3_GND" pad="38"/>
-<connect gate="G$0" pin="4_GND" pad="39 39-2 39-3 39-4 39-5 39-6 39-7 39-8 39-9"/>
-<connect gate="G$0" pin="CLK" pad="20"/>
-<connect gate="G$0" pin="CMD" pad="19"/>
-<connect gate="G$0" pin="EN" pad="3"/>
-<connect gate="G$0" pin="IO0" pad="25"/>
-<connect gate="G$0" pin="IO12" pad="14"/>
-<connect gate="G$0" pin="IO13" pad="16"/>
-<connect gate="G$0" pin="IO14" pad="13"/>
-<connect gate="G$0" pin="IO15" pad="23"/>
-<connect gate="G$0" pin="IO16" pad="27"/>
-<connect gate="G$0" pin="IO17" pad="28"/>
-<connect gate="G$0" pin="IO18" pad="30"/>
-<connect gate="G$0" pin="IO19" pad="31"/>
-<connect gate="G$0" pin="IO2" pad="24"/>
-<connect gate="G$0" pin="IO21" pad="33"/>
-<connect gate="G$0" pin="IO22" pad="36"/>
-<connect gate="G$0" pin="IO23" pad="37"/>
-<connect gate="G$0" pin="IO25" pad="10"/>
-<connect gate="G$0" pin="IO26" pad="11"/>
-<connect gate="G$0" pin="IO27" pad="12"/>
-<connect gate="G$0" pin="IO32" pad="8"/>
-<connect gate="G$0" pin="IO33" pad="9"/>
-<connect gate="G$0" pin="IO34" pad="6"/>
-<connect gate="G$0" pin="IO35" pad="7"/>
-<connect gate="G$0" pin="IO4" pad="26"/>
-<connect gate="G$0" pin="IO5" pad="29"/>
-<connect gate="G$0" pin="NC" pad="32"/>
-<connect gate="G$0" pin="RXD0" pad="34"/>
-<connect gate="G$0" pin="SD0" pad="21"/>
-<connect gate="G$0" pin="SD1" pad="22"/>
-<connect gate="G$0" pin="SD2" pad="17"/>
-<connect gate="G$0" pin="SD3" pad="18"/>
-<connect gate="G$0" pin="SENSOR_VN" pad="5"/>
-<connect gate="G$0" pin="SENSOR_VP" pad="4"/>
-<connect gate="G$0" pin="TXD0" pad="35"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AUTOMOTIVE" value="No"/>
-<attribute name="BANDWIDTH" value="72MHz"/>
-<attribute name="CENTROID_NOT_SPECIFIED" value="No"/>
-<attribute name="DATASHEET" value="https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf"/>
-<attribute name="DATA_RATE" value="150Mbits/s"/>
-<attribute name="DEVICE_CLASS_L1" value="Integrated Circuits (ICs)"/>
-<attribute name="DEVICE_CLASS_L2" value="RF Semiconductors and Devices"/>
-<attribute name="DEVICE_CLASS_L3" value="Transceivers"/>
-<attribute name="DIGIKEY_DESCRIPTION" value="RX TXRX MODULE WIFI U.FL SMD"/>
-<attribute name="DIGIKEY_PART_NUMBER" value="1904-1028-1-ND"/>
-<attribute name="FOOTPRINT_VARIANT_NAME_0" value="Recommended_Land_Pattern"/>
-<attribute name="HEIGHT" value="3.35mm"/>
-<attribute name="INTERFACE" value="I2C,SPI,UART,Ethernet,I2S,Other"/>
-<attribute name="LEAD_FREE" value="Yes"/>
-<attribute name="MAX_FREQUENCY" value="2484MHz"/>
-<attribute name="MAX_SUPPLY_VOLTAGE" value="3.6V"/>
-<attribute name="MF" value="Espressif Systems"/>
-<attribute name="MFG_PACKAGE_IDENT" value="0"/>
-<attribute name="MFG_PACKAGE_IDENT_DATE" value="0"/>
-<attribute name="MFG_PACKAGE_IDENT_REV" value="0"/>
-<attribute name="MIN_SUPPLY_VOLTAGE" value="3V"/>
-<attribute name="MOUSER_PART_NUMBER" value="356-ES32WROOM32U16MB"/>
-<attribute name="MPN" value="ESP32-WROOM-32U (16MB)"/>
-<attribute name="NOMINAL_SUPPLY_CURRENT" value="0.5A"/>
-<attribute name="NUMBER_OF_ADC_CHANNELS" value="16"/>
-<attribute name="NUMBER_OF_GPIO" value="26"/>
-<attribute name="PACKAGE" value="BT_MODULE"/>
-<attribute name="PREFIX" value="MD"/>
-<attribute name="ROHS" value="Yes"/>
-<attribute name="SENSITIVITY" value="-98dBm"/>
-<attribute name="TEMPERATURE_RANGE_HIGH" value="+85°C"/>
-<attribute name="TEMPERATURE_RANGE_LOW" value="-40°C"/>
-<attribute name="VERIFICATION_VERSION" value="0.0.0.3"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="MMBT3904">
 <packages>
 <package name="SOT95P240X120-3N">
@@ -20184,6 +19935,94 @@ Source: 008-0260-0_E.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="HLK-10M05">
+<packages>
+<package name="HLK10M05">
+<description>&lt;b&gt;HLK-10M05-1&lt;/b&gt;&lt;br&gt;
+</description>
+<text x="20.95" y="-3.9" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="20.95" y="-3.9" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.2" y1="10" x2="44.7" y2="10" width="0.2" layer="51"/>
+<wire x1="44.7" y1="10" x2="44.7" y2="-17.8" width="0.2" layer="51"/>
+<wire x1="44.7" y1="-17.8" x2="-2.2" y2="-17.8" width="0.2" layer="51"/>
+<wire x1="-2.2" y1="-17.8" x2="-2.2" y2="10" width="0.2" layer="51"/>
+<wire x1="-2.2" y1="10" x2="44.7" y2="10" width="0.1" layer="21"/>
+<wire x1="44.7" y1="10" x2="44.7" y2="-17.8" width="0.1" layer="21"/>
+<wire x1="44.7" y1="-17.8" x2="-2.2" y2="-17.8" width="0.1" layer="21"/>
+<wire x1="-2.2" y1="-17.8" x2="-2.2" y2="10" width="0.1" layer="21"/>
+<wire x1="-3.3" y1="10.5" x2="45.2" y2="10.5" width="0.1" layer="51"/>
+<wire x1="45.2" y1="10.5" x2="45.2" y2="-18.3" width="0.1" layer="51"/>
+<wire x1="45.2" y1="-18.3" x2="-3.3" y2="-18.3" width="0.1" layer="51"/>
+<wire x1="-3.3" y1="-18.3" x2="-3.3" y2="10.5" width="0.1" layer="51"/>
+<wire x1="-2.7" y1="0.1" x2="-2.7" y2="0.1" width="0.2" layer="21"/>
+<wire x1="-2.7" y1="0.1" x2="-2.7" y2="-0.1" width="0.2" layer="21" curve="180"/>
+<wire x1="-2.7" y1="-0.1" x2="-2.7" y2="-0.1" width="0.2" layer="21"/>
+<wire x1="-2.7" y1="-0.1" x2="-2.7" y2="0.1" width="0.2" layer="21" curve="180"/>
+<pad name="1" x="0" y="0" drill="1" diameter="1.5"/>
+<pad name="2" x="0" y="-7.8" drill="1" diameter="1.5"/>
+<pad name="3" x="42.5" y="7.5" drill="1" diameter="1.5"/>
+<pad name="4" x="42.5" y="-15.3" drill="1" diameter="1.5"/>
+</package>
+</packages>
+<symbols>
+<symbol name="HLK-10M05">
+<wire x1="5.08" y1="2.54" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-5.08" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<text x="24.13" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="24.13" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="AC_1" x="0" y="0" length="middle"/>
+<pin name="AC_2" x="0" y="-2.54" length="middle"/>
+<pin name="-V0" x="27.94" y="0" length="middle" rot="R180"/>
+<pin name="+V0" x="27.94" y="-2.54" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="HLK-10M05" prefix="PS">
+<description>&lt;h1&gt; HI-LINK HLK-10M05 &lt;/h1&gt;
+&lt;p&gt;&lt;b&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;
+&lt;img src='https://assets.lcsc.com/images/szlcsc/224x224/20190713_HI-LINK-HLK-10M05_C403745_front.jpg' width='224'&gt;&lt;img src='https://assets.lcsc.com/images/szlcsc/224x224/20190713_HI-LINK-HLK-10M05_C403745_back.jpg' width='224'&gt;&lt;img src='https://assets.lcsc.com/images/szlcsc/224x224/20190713_HI-LINK-HLK-10M05_C403745_blank.jpg' width='224'&gt;&lt;br&gt;
+&lt;/p&gt;
+
+Manufacturer : &lt;b&gt;&lt;a href='https://lcsc.com//brand-detail/11515.html' target='_blank'&gt;HI-LINK&lt;/a&gt;&lt;/b&gt;&lt;br&gt;
+Mfr.Part #     &lt;b&gt;HLK-10M05&lt;/b&gt;&lt;br&gt;
+LCSC Part #    &lt;b&gt;&lt;a href='https://lcsc.com/product-detail/show_C403745.html'  target='_blank'&gt;C403745&lt;/a&gt;&lt;/b&gt;&lt;br&gt;
+Package      : &lt;b&gt;Through Hole&lt;/b&gt;&lt;br&gt;
+Datasheet    : &lt;b&gt;&lt;a href='javascript:void(0);'  target='_blank'&gt; EasyEDA Model&lt;/a&gt;&lt;/b&gt;&lt;br&gt;
+
+&lt;p&gt;
+&lt;b&gt;Power Module AC-DC Through Hole RoHS&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/1909111105_HI-LINK-HLK-10M05_C403745.pdf"&gt; Datasheet &lt;/a&gt;
+&lt;/p&gt;  &lt;a href="https://pricing.snapeda.com/parts/HLK-10M05/Hi-link/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="HLK-10M05" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="HLK10M05">
+<connects>
+<connect gate="G$1" pin="+V0" pad="4"/>
+<connect gate="G$1" pin="-V0" pad="3"/>
+<connect gate="G$1" pin="AC_1" pad="1"/>
+<connect gate="G$1" pin="AC_2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="Not in stock"/>
+<attribute name="DESCRIPTION" value=" 10W Ultra-Compact Power Module "/>
+<attribute name="MF" value="Hi-link"/>
+<attribute name="MP" value="HLK-10M05"/>
+<attribute name="PACKAGE" value="Package "/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -20201,15 +20040,14 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10uF"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100nF"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="MD1" library="Espressif Systems - ESP32-WROOM-32U (16MB)" deviceset="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB" device="ESPRESSIF_SYSTEMS_ESP32-WROOM-32U_16MB_0_0"/>
 <part name="Q16" library="MMBT3904" deviceset="MMBT3904" device=""/>
 <part name="Q17" library="MMBT3904" deviceset="MMBT3904" device=""/>
 <part name="R41" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R42" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="S1" library="switch-omron" library_urn="urn:adsk.eagle:library:377" deviceset="31-XX" device="" package3d_urn="urn:adsk.eagle:package:27487/1"/>
 <part name="S2" library="switch-omron" library_urn="urn:adsk.eagle:library:377" deviceset="31-XX" device="" package3d_urn="urn:adsk.eagle:package:27487/1"/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
-<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100nF"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100nF"/>
 <part name="R43" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R44" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -20266,6 +20104,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U3" library="ESP32-WROOM-32D" deviceset="ESP32-WROOM-32D" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="PS2" library="HLK-10M05" deviceset="HLK-10M05" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20296,9 +20135,6 @@ Source: 008-0260-0_E.pdf</description>
 </instance>
 <instance part="GND4" gate="1" x="25.4" y="220.98" smashed="yes">
 <attribute name="VALUE" x="22.86" y="218.44" size="1.778" layer="96"/>
-</instance>
-<instance part="MD1" gate="G$0" x="195.58" y="391.16" smashed="yes">
-<attribute name="NAME" x="198.12" y="388.62" size="2.54" layer="95" align="top-left"/>
 </instance>
 <instance part="Q16" gate="G$1" x="152.4" y="375.92" smashed="yes">
 <attribute name="NAME" x="157.483840625" y="375.92" size="1.779340625" layer="95"/>
@@ -20508,12 +20344,16 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="GND9" gate="1" x="111.76" y="165.1" smashed="yes">
 <attribute name="VALUE" x="109.22" y="162.56" size="1.778" layer="96"/>
 </instance>
-<instance part="U3" gate="G$1" x="276.86" y="350.52" smashed="yes">
-<attribute name="NAME" x="261.8241" y="382.1145" size="1.778" layer="95"/>
-<attribute name="VALUE" x="261.5733" y="314.8519" size="1.778" layer="96"/>
+<instance part="U3" gate="G$1" x="208.28" y="350.52" smashed="yes">
+<attribute name="NAME" x="193.2441" y="382.1145" size="1.778" layer="95"/>
+<attribute name="VALUE" x="192.9933" y="314.8519" size="1.778" layer="96"/>
 </instance>
-<instance part="GND10" gate="1" x="299.72" y="317.5" smashed="yes">
-<attribute name="VALUE" x="297.18" y="314.96" size="1.778" layer="96"/>
+<instance part="GND10" gate="1" x="231.14" y="317.5" smashed="yes">
+<attribute name="VALUE" x="228.6" y="314.96" size="1.778" layer="96"/>
+</instance>
+<instance part="PS2" gate="G$1" x="185.42" y="116.84" smashed="yes">
+<attribute name="NAME" x="209.55" y="124.46" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="209.55" y="121.92" size="1.778" layer="96" align="center-left"/>
 </instance>
 </instances>
 <busses>
@@ -20712,7 +20552,7 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="U3" gate="G$1" pin="GND"/>
 <pinref part="GND10" gate="1" pin="GND"/>
-<wire x1="297.18" y1="320.04" x2="299.72" y2="320.04" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="320.04" x2="231.14" y2="320.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SCK_VSPI" class="0">
@@ -20723,8 +20563,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO18"/>
-<wire x1="297.18" y1="347.98" x2="299.72" y2="347.98" width="0.1524" layer="91"/>
-<label x="299.72" y="347.98" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="347.98" x2="231.14" y2="347.98" width="0.1524" layer="91"/>
+<label x="231.14" y="347.98" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="MISO_VSPI" class="0">
@@ -20735,8 +20575,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO19"/>
-<wire x1="297.18" y1="345.44" x2="299.72" y2="345.44" width="0.1524" layer="91"/>
-<label x="299.72" y="345.44" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="345.44" x2="231.14" y2="345.44" width="0.1524" layer="91"/>
+<label x="231.14" y="345.44" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="MOSI_VSPI" class="0">
@@ -20747,8 +20587,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO23"/>
-<wire x1="297.18" y1="337.82" x2="299.72" y2="337.82" width="0.1524" layer="91"/>
-<label x="299.72" y="337.82" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="337.82" x2="231.14" y2="337.82" width="0.1524" layer="91"/>
+<label x="231.14" y="337.82" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SS_LORA" class="0">
@@ -20759,8 +20599,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO5"/>
-<wire x1="297.18" y1="365.76" x2="299.72" y2="365.76" width="0.1524" layer="91"/>
-<label x="299.72" y="365.76" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="365.76" x2="231.14" y2="365.76" width="0.1524" layer="91"/>
+<label x="231.14" y="365.76" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="LORA_DI1" class="0">
@@ -20771,8 +20611,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO32"/>
-<wire x1="297.18" y1="327.66" x2="299.72" y2="327.66" width="0.1524" layer="91"/>
-<label x="299.72" y="327.66" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="327.66" x2="231.14" y2="327.66" width="0.1524" layer="91"/>
+<label x="231.14" y="327.66" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="LORA_DI0" class="0">
@@ -20783,8 +20623,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO25"/>
-<wire x1="297.18" y1="335.28" x2="299.72" y2="335.28" width="0.1524" layer="91"/>
-<label x="299.72" y="335.28" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="335.28" x2="231.14" y2="335.28" width="0.1524" layer="91"/>
+<label x="231.14" y="335.28" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="3V3" class="0">
@@ -20832,8 +20672,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="3V3"/>
-<wire x1="297.18" y1="378.46" x2="299.72" y2="378.46" width="0.1524" layer="91"/>
-<label x="299.72" y="378.46" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="378.46" x2="231.14" y2="378.46" width="0.1524" layer="91"/>
+<label x="231.14" y="378.46" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="ANT" class="0">
@@ -20856,8 +20696,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO26"/>
-<wire x1="297.18" y1="332.74" x2="299.72" y2="332.74" width="0.1524" layer="91"/>
-<label x="299.72" y="332.74" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="332.74" x2="231.14" y2="332.74" width="0.1524" layer="91"/>
+<label x="231.14" y="332.74" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -20868,8 +20708,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO22"/>
-<wire x1="297.18" y1="340.36" x2="299.72" y2="340.36" width="0.1524" layer="91"/>
-<label x="299.72" y="340.36" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="340.36" x2="231.14" y2="340.36" width="0.1524" layer="91"/>
+<label x="231.14" y="340.36" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -20880,8 +20720,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO21"/>
-<wire x1="297.18" y1="342.9" x2="299.72" y2="342.9" width="0.1524" layer="91"/>
-<label x="299.72" y="342.9" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="342.9" x2="231.14" y2="342.9" width="0.1524" layer="91"/>
+<label x="231.14" y="342.9" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$99" class="0">
@@ -20943,8 +20783,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="EN"/>
-<wire x1="256.54" y1="373.38" x2="254" y2="373.38" width="0.1524" layer="91"/>
-<label x="254" y="373.38" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<wire x1="187.96" y1="373.38" x2="185.42" y2="373.38" width="0.1524" layer="91"/>
+<label x="185.42" y="373.38" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="IO0" class="0">
@@ -20966,8 +20806,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO0"/>
-<wire x1="297.18" y1="373.38" x2="299.72" y2="373.38" width="0.1524" layer="91"/>
-<label x="299.72" y="373.38" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="373.38" x2="231.14" y2="373.38" width="0.1524" layer="91"/>
+<label x="231.14" y="373.38" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -20983,8 +20823,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="RXD0"/>
-<wire x1="256.54" y1="347.98" x2="254" y2="347.98" width="0.1524" layer="91"/>
-<label x="254" y="347.98" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<wire x1="187.96" y1="347.98" x2="185.42" y2="347.98" width="0.1524" layer="91"/>
+<label x="185.42" y="347.98" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="RX" class="0">
@@ -21000,8 +20840,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="TXD0"/>
-<wire x1="256.54" y1="350.52" x2="254" y2="350.52" width="0.1524" layer="91"/>
-<label x="254" y="350.52" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<wire x1="187.96" y1="350.52" x2="185.42" y2="350.52" width="0.1524" layer="91"/>
+<label x="185.42" y="350.52" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$102" class="0">
@@ -21171,8 +21011,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO12"/>
-<wire x1="297.18" y1="363.22" x2="299.72" y2="363.22" width="0.1524" layer="91"/>
-<label x="299.72" y="363.22" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="363.22" x2="231.14" y2="363.22" width="0.1524" layer="91"/>
+<label x="231.14" y="363.22" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -21207,8 +21047,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO16"/>
-<wire x1="297.18" y1="353.06" x2="299.72" y2="353.06" width="0.1524" layer="91"/>
-<label x="299.72" y="353.06" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="353.06" x2="231.14" y2="353.06" width="0.1524" layer="91"/>
+<label x="231.14" y="353.06" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="TX_PZEM" class="0">
@@ -21219,8 +21059,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO17"/>
-<wire x1="297.18" y1="350.52" x2="299.72" y2="350.52" width="0.1524" layer="91"/>
-<label x="299.72" y="350.52" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="350.52" x2="231.14" y2="350.52" width="0.1524" layer="91"/>
+<label x="231.14" y="350.52" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -21285,8 +21125,8 @@ Source: 008-0260-0_E.pdf</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO13"/>
-<wire x1="297.18" y1="360.68" x2="299.72" y2="360.68" width="0.1524" layer="91"/>
-<label x="299.72" y="360.68" size="0.8128" layer="95" xref="yes"/>
+<wire x1="228.6" y1="360.68" x2="231.14" y2="360.68" width="0.1524" layer="91"/>
+<label x="231.14" y="360.68" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="RX_SIM" class="0">
@@ -21295,12 +21135,22 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="180.34" y1="160.02" x2="177.8" y2="160.02" width="0.1524" layer="91"/>
 <label x="177.8" y="160.02" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="IO14"/>
+<wire x1="228.6" y1="358.14" x2="231.14" y2="358.14" width="0.1524" layer="91"/>
+<label x="231.14" y="358.14" size="0.8128" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="TX_SIM" class="0">
 <segment>
 <pinref part="SIM800L1" gate="G$1" pin="TXD"/>
 <wire x1="180.34" y1="157.48" x2="177.8" y2="157.48" width="0.1524" layer="91"/>
 <label x="177.8" y="157.48" size="0.8128" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="IO15"/>
+<wire x1="228.6" y1="355.6" x2="231.14" y2="355.6" width="0.1524" layer="91"/>
+<label x="231.14" y="355.6" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$13" class="0">

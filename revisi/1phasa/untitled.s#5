@@ -19746,17 +19746,7 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="-9" y1="-12.75" x2="-9" y2="6.45" width="0.127" layer="51"/>
 <wire x1="-9" y1="12.75" x2="-9" y2="6.45" width="0.127" layer="51"/>
 <wire x1="-9" y1="6.45" x2="9" y2="6.45" width="0.127" layer="51"/>
-<rectangle x1="-9" y1="6.45" x2="9" y2="12.75" layer="41"/>
-<rectangle x1="-9" y1="6.45" x2="9" y2="12.75" layer="43"/>
 <text x="-6" y="9" size="1.778" layer="51">ANTENNA</text>
-<wire x1="-9.25" y1="13" x2="9.25" y2="13" width="0.05" layer="39"/>
-<wire x1="9.25" y1="13" x2="9.25" y2="6" width="0.05" layer="39"/>
-<wire x1="9.25" y1="6" x2="9.75" y2="6" width="0.05" layer="39"/>
-<wire x1="9.75" y1="6" x2="9.75" y2="-13.5" width="0.05" layer="39"/>
-<wire x1="9.75" y1="-13.5" x2="-9.75" y2="-13.5" width="0.05" layer="39"/>
-<wire x1="-9.75" y1="-13.5" x2="-9.75" y2="6" width="0.05" layer="39"/>
-<wire x1="-9.75" y1="6" x2="-9.25" y2="6" width="0.05" layer="39"/>
-<wire x1="-9.25" y1="6" x2="-9.25" y2="13" width="0.05" layer="39"/>
 <circle x="-10" y="5.25" radius="0.1" width="0.2" layer="51"/>
 <circle x="-10" y="5.25" radius="0.1" width="0.2" layer="21"/>
 <text x="-9.5" y="13.25" size="1.27" layer="25">&gt;NAME</text>
@@ -19958,8 +19948,8 @@ Source: 008-0260-0_E.pdf</description>
 <part name="R42" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="S1" library="switch-omron" library_urn="urn:adsk.eagle:library:377" deviceset="31-XX" device="" package3d_urn="urn:adsk.eagle:package:27487/1"/>
 <part name="S2" library="switch-omron" library_urn="urn:adsk.eagle:library:377" deviceset="31-XX" device="" package3d_urn="urn:adsk.eagle:package:27487/1"/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
-<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100nF"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100nF"/>
 <part name="R43" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R44" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -21077,14 +21067,6 @@ Source: 008-0260-0_E.pdf</description>
 </sheet>
 </sheets>
 <errors>
-<approved hash="101,1,20.32,309.88,CONN2P-3.5PI1,P0,,,,"/>
-<approved hash="101,1,20.32,312.42,CONN2P-3.5PI1,P1,,,,"/>
-<approved hash="202,1,238.76,375.92,MD1,SENSOR_VN,,,,"/>
-<approved hash="202,1,238.76,373.38,MD1,SENSOR_VP,,,,"/>
-<approved hash="104,1,238.76,327.66,MD1,1_GND,GND,,,"/>
-<approved hash="104,1,238.76,325.12,MD1,2_GND,GND,,,"/>
-<approved hash="104,1,238.76,322.58,MD1,3_GND,GND,,,"/>
-<approved hash="104,1,238.76,320.04,MD1,4_GND,GND,,,"/>
 <approved hash="104,1,104.14,375.92,U19,V3,N$104,,,"/>
 <approved hash="202,1,73.66,358.14,U19,!CTS,,,,"/>
 <approved hash="202,1,73.66,355.6,U19,!DSR,,,,"/>
@@ -21093,41 +21075,25 @@ Source: 008-0260-0_E.pdf</description>
 <approved hash="202,1,73.66,370.84,U19,RS232,,,,"/>
 <approved hash="104,1,104.14,378.46,U19,VCC,VCC_USB,,,"/>
 <approved hash="104,1,96.52,251.46,U1,ADJ/GND,GND,,,"/>
-<approved hash="208,1,53.34,297.18,GND,out,,,,"/>
-<approved hash="208,1,55.88,294.64,GND,sup,,,,"/>
+<approved hash="202,1,187.96,365.76,U3,SENSOR_VP,,,,"/>
+<approved hash="202,1,187.96,363.22,U3,SENSOR_VN,,,,"/>
+<approved hash="202,1,187.96,358.14,U3,IO34,,,,"/>
+<approved hash="202,1,187.96,355.6,U3,IO35,,,,"/>
 <approved hash="208,1,-15.24,261.62,GND,sup,,,,"/>
 <approved hash="208,1,25.4,223.52,GND,sup,,,,"/>
-<approved hash="208,1,144.78,223.52,GND,sup,,,,"/>
-<approved hash="208,1,27.94,172.72,GND,sup,,,,"/>
-<approved hash="208,1,297.18,337.82,GND,sup,,,,"/>
 <approved hash="208,1,157.48,302.26,GND,sup,,,,"/>
 <approved hash="208,1,50.8,325.12,GND,sup,,,,"/>
-<approved hash="106,1,246.38,246.38,P16,,,,,"/>
+<approved hash="208,1,172.72,254,GND,out,,,,"/>
+<approved hash="208,1,182.88,254,GND,sup,,,,"/>
+<approved hash="208,1,53.34,177.8,GND,sup,,,,"/>
+<approved hash="208,1,218.44,208.28,GND,sup,,,,"/>
+<approved hash="208,1,175.26,154.94,GND,sup,,,,"/>
+<approved hash="208,1,111.76,167.64,GND,sup,,,,"/>
+<approved hash="208,1,231.14,320.04,GND,sup,,,,"/>
 <approved hash="110,1,71.12,325.12,GND,VCC_USB,,,,"/>
-<approved hash="113,1,133.228,200.538,FRAME1,,,,,"/>
 <approved hash="113,1,11.43,256.54,LORA-NICERF-V1,,,,,"/>
-<approved hash="113,1,49.7103,200.66,R7,,,,,"/>
-<approved hash="113,1,402.468,200.538,FRAME2,,,,,"/>
-<approved hash="113,1,171.63,205.74,R14,,,,,"/>
-<approved hash="113,1,49.7103,137.16,R16,,,,,"/>
-<approved hash="113,1,174.17,142.24,R18,,,,,"/>
-<approved hash="113,1,52.2503,78.74,R20,,,,,"/>
-<approved hash="113,1,171.63,83.82,R22,,,,,"/>
-<approved hash="113,1,318.95,365.76,R24,,,,,"/>
-<approved hash="113,1,451.03,365.76,R26,,,,,"/>
-<approved hash="113,1,331.65,287.02,R28,,,,,"/>
-<approved hash="113,1,453.57,292.1,R30,,,,,"/>
-<approved hash="113,1,331.65,213.36,R32,,,,,"/>
-<approved hash="113,1,461.19,218.44,R34,,,,,"/>
-<approved hash="113,1,329.11,139.7,R36,,,,,"/>
-<approved hash="113,1,466.27,142.24,R38,,,,,"/>
-<approved hash="113,1,339.27,76.2,R40,,,,,"/>
 <approved hash="113,1,147.32,326.095,S1,,,,,"/>
 <approved hash="113,1,147.32,308.315,S2,,,,,"/>
-<approved hash="113,1,146.05,319.171,C3,,,,,"/>
-<approved hash="113,1,146.05,301.391,C4,,,,,"/>
-<approved hash="113,1,67.7634,363.767,Q18,,,,,"/>
-<approved hash="113,1,17.3495,311.15,CONN2P-3.5PI1,,,,,"/>
 </errors>
 </schematic>
 </drawing>
