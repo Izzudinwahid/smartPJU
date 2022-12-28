@@ -17,7 +17,7 @@ void readSensor() {
 
     // Print the values to the Serial console
     Serial.print("Voltage: ");      Serial.print(voltPZEM);      Serial.println("V");
-    Serial.print("Current: ");      Serial.print(currentPZEM);      Serial.println("A");
+    Serial.print("Current: ");      Serial.print(currentPZEM,4);      Serial.println("A");
     Serial.print("Power: ");        Serial.print(powerPZEM);        Serial.println("W");
     Serial.print("Energy: ");       Serial.print(energyPZEM, 3);     Serial.println("kWh");
   }

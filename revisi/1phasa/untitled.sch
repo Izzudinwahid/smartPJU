@@ -20985,9 +20985,9 @@ Source: 008-0260-0_E.pdf</description>
 <label x="208.28" y="203.2" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U3" gate="G$1" pin="IO16"/>
-<wire x1="228.6" y1="353.06" x2="231.14" y2="353.06" width="0.1524" layer="91"/>
-<label x="231.14" y="353.06" size="0.8128" layer="95" xref="yes"/>
+<pinref part="U3" gate="G$1" pin="IO17"/>
+<wire x1="228.6" y1="350.52" x2="231.14" y2="350.52" width="0.1524" layer="91"/>
+<label x="231.14" y="350.52" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="TX_PZEM" class="0">
@@ -20997,9 +20997,9 @@ Source: 008-0260-0_E.pdf</description>
 <label x="208.28" y="205.74" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U3" gate="G$1" pin="IO17"/>
-<wire x1="228.6" y1="350.52" x2="231.14" y2="350.52" width="0.1524" layer="91"/>
-<label x="231.14" y="350.52" size="0.8128" layer="95" xref="yes"/>
+<pinref part="U3" gate="G$1" pin="IO16"/>
+<wire x1="228.6" y1="353.06" x2="231.14" y2="353.06" width="0.1524" layer="91"/>
+<label x="231.14" y="353.06" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$15" class="0">
