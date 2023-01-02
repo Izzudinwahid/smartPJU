@@ -5,8 +5,8 @@
 #include <Update.h>
 
 const char* host = "esp32";
-const char* ssid = "MGI-MNC";
-const char* password = "#neurixmnc#";
+const char* ssid = "INTERNET";
+const char* password = "Bi5mill4h";
 
 //variabls for blinking an LED with Millis
 const int led = 2; // ESP32 Pin to which onboard LED is connected
@@ -151,7 +151,6 @@ void setup(void) {
     }
   });
   server.begin();
-  Serial.print(server);
 }
 
 void loop(void) {

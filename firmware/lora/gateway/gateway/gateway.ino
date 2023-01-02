@@ -15,13 +15,15 @@
 #include <LoRa.h>
 
 const int csPin = 5;          // LoRa radio chip select
-const int resetPin = 27;       // LoRa radio reset
+const int resetPin = 26;       // LoRa radio reset
 const int irqPin = 1;         // change for your board; must be a hardware interrupt pin
 
 String outgoing;              // outgoing message
 String dataIn = "";
-String dataParse[2];
+String dataParse[3];
+String dataSensor[12];
 int flag_dataParse = 0;
+int flagPhase = 0;
 
 byte msgCount = 0;            // count of outgoing messages
 byte localAddress = 0x01;     // address of this device
@@ -61,11 +63,12 @@ void loop() {
         }
       }
       destinationFinal = dataParse[0].toInt();
-      sendMessage(dataParse[1]);
+      flagPhase = dataParse[1].toInt();
+      sendMessage(dataParse[2]);
       dataIn = "";
       flag_dataParse = 0;
 
-      for (int i = 0; i < 2; i++) {
+      for (int i = 0; i < 3; i++) {
         dataParse[i] = "";
       }
     }
@@ -81,6 +84,7 @@ void sendMessage(String outgoing) {
   LoRa.write(destinationFinal);         // add destination address Final
   LoRa.write(localAddress);             // add sender address
   LoRa.write(localAddress);
+  LoRa.write(flagPhase);
   LoRa.write(msgCount);                 // add message ID
   LoRa.write(outgoing.length());        // add payload length
   LoRa.print(outgoing);                 // add payload
@@ -96,6 +100,7 @@ void onReceive(int packetSize) {
   int recipientFinal = LoRa.read();     // recipient address Final
   byte sender = LoRa.read();            // sender address
   byte senderReqRes = LoRa.read();     // sender request data address
+  int flagPhasa = LoRa.read();
   byte incomingMsgId = LoRa.read();     // incoming msg ID
   byte incomingLength = LoRa.read();    // incoming msg length
 
@@ -116,15 +121,43 @@ void onReceive(int packetSize) {
     return;                             // skip rest of function
   }
 
+  Serial.println(incoming);
+  if (flagPhasa == 0) {
+    Serial.println("Phase Error");
+  }
+  else if (flagPhasa == 1) {
+    for (int i = 0; i < incoming.length(); i++) {
+      if (incoming[i] == '#') {
+        flag_dataParse++;
+      }
+      else {
+        dataSensor[flag_dataParse] += incoming[i];
+      }
+    }
+
+    for (int i = 0; i <= flag_dataParse; i++) {
+      Serial.println(dataSensor[i]);
+    }
+
+    for (int i = 0; i <= flag_dataParse; i++) {
+      dataSensor[i] = "";
+    }
+    flag_dataParse = 0;
+  }
+  else if (flagPhasa == 3) {
+    Serial.println("masuk ke Phase 3");
+  }
+
   // if message is for this device, or broadcast, print details:
-  Serial.println("Received from: 0x" + String(sender, HEX));
-  Serial.println("Received Request from: 0x" + String(senderReqRes, HEX));
-  Serial.println("Sent to: 0x" + String(recipient, HEX));
-  Serial.println("Sent to: 0x" + String(recipientFinal, HEX));
-  Serial.println("Message ID: " + String(incomingMsgId));
-  Serial.println("Message length: " + String(incomingLength));
-  Serial.println("Message: " + incoming);
-  Serial.println("RSSI: " + String(LoRa.packetRssi()));
-  Serial.println("Snr: " + String(LoRa.packetSnr()));
-  Serial.println();
+  //  Serial.println("Received from: 0x" + String(sender, HEX));
+  //  Serial.println("Received Request from: 0x" + String(senderReqRes, HEX));
+  //  Serial.println("Sent to: 0x" + String(recipient, HEX));
+  //  Serial.println("Sent to: 0x" + String(recipientFinal, HEX));
+  //  Serial.println("Phase: " + String(flagPhasa));
+  //  Serial.println("Message ID: " + String(incomingMsgId));
+  //  Serial.println("Message length: " + String(incomingLength));
+  //  Serial.println("Message: " + incoming);
+  //  Serial.println("RSSI: " + String(LoRa.packetRssi()));
+  //  Serial.println("Snr: " + String(LoRa.packetSnr()));
+  //  Serial.println();
 }

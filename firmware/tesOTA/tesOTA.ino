@@ -5,10 +5,10 @@
 #include <Update.h>
 
 const char *host = "esp32";
-const char *ssid = "ESP32-01";
+const char *ssid = "SmartPJU-node1";
 const char *password = "12345678";
 
-const int led = 2;
+const int led = 13;
 unsigned long previousMillis = 0;  // will store last time LED was updated
 const long interval = 1000;  // interval at which to blink (milliseconds)
 int ledState = LOW;
