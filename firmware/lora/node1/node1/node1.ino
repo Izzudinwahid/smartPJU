@@ -33,14 +33,14 @@ const int irqPin = 1;         // change for your board; must be a hardware inter
 
 String outgoing;              // outgoing message
 byte msgCount = 0;            // count of outgoing messages
-byte localAddress = 0x02;     // address of this device
-byte destination = 0x01;      // destination to send to
-int destinationFinal = 0x03;
-int destRegRes = 0x02;
+byte localAddress = 0x03;     // address of this device
+byte destination = 0x02;      // destination to send to
+int destinationFinal = 0x04;
+int destRegRes = 0x03;
 int flagPhase = 1;
 int CONSTANTAPHASE = 1;
-int CONSSTART = 1;
-int CONSFINISH = 3;
+int CONSSTART = 2;
+int CONSFINISH = 4;
 unsigned long interval = 1000;    // 10 s interval to send message
 unsigned long previousMillis = 0;  // will store last time message sent
 
@@ -132,9 +132,8 @@ void onReceive(int packetSize) {
       //        digitalWrite(pinRelay, HIGH);
       //      else
       //        digitalWrite(pinRelay, LOW);
-
-      //      EEPROM.write(0, relay);
       flag = 1;
+      //      EEPROM.write(0, relay);
       statusRelay = relay;
       CONSTANTARELAY = relay;
       HSBtimer = HSBtimerRelay;
@@ -379,11 +378,10 @@ void loop() {
       digitalWrite(pinRelay, HIGH);
       statusRelay = 0;
     }
-    else if(statusRelay == 0 && flag == 1){
+    else if (statusRelay == 0 && flag == 1) {
       digitalWrite(pinRelay, LOW);
       statusRelay = 1;
     }
-
     readSensor();
     previousMillis = millis();
   }

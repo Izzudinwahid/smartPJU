@@ -20,17 +20,20 @@ const int irqPin = 1;         // change for your board; must be a hardware inter
 
 String outgoing;              // outgoing message
 String dataIn = "";
-String dataParse[3];
-String dataSensor[12];
+String dataParse[5];
+String dataSensor[15];
+int statusRelay;
 int flag_dataParse = 0;
 int flagPhase = 0;
+unsigned long timer;
+int HSBtimer, LSBtimer;
 
 byte msgCount = 0;            // count of outgoing messages
 byte localAddress = 0x01;     // address of this device
 byte destination = 0x02;      // destination to send to
 int destinationFinal = 0x03;
-long lastSendTime = 0;        // last send time
-int interval = 2000;          // interval between sends
+unsigned long lastSendTime = 0;        // last send time
+unsigned long interval = 2000;          // interval between sends
 
 void setup() {
   Serial.begin(9600);                   // initialize serial
@@ -64,11 +67,14 @@ void loop() {
       }
       destinationFinal = dataParse[0].toInt();
       flagPhase = dataParse[1].toInt();
-      sendMessage(dataParse[2]);
+      statusRelay = dataParse[2].toInt();
+      //      timer = dataParse[3].toInt();
+      HSBtimer = dataParse[3].toInt() / 255;
+      LSBtimer = dataParse[3].toInt() % 255;
+      sendMessage(dataParse[4]);
       dataIn = "";
       flag_dataParse = 0;
-
-      for (int i = 0; i < 3; i++) {
+      for (int i = 0; i < 5; i++) {
         dataParse[i] = "";
       }
     }
@@ -79,14 +85,17 @@ void loop() {
 }
 
 void sendMessage(String outgoing) {
-  LoRa.beginPacket();                   // start packet
+  LoRa.beginPacket();
+  LoRa.write(statusRelay);
+  LoRa.write(HSBtimer);
+  LoRa.write(LSBtimer);
   LoRa.write(destination);              // add destination address
   LoRa.write(destinationFinal);         // add destination address Final
   LoRa.write(localAddress);             // add sender address
   LoRa.write(localAddress);
   LoRa.write(flagPhase);
-  LoRa.write(msgCount);                 // add message ID
-  LoRa.write(outgoing.length());        // add payload length
+  //  LoRa.write(msgCount);                 // add message ID
+  //  LoRa.write(outgoing.length());        // add payload length
   LoRa.print(outgoing);                 // add payload
   LoRa.endPacket();                     // finish packet and send it
   msgCount++;                           // increment message ID
@@ -96,13 +105,16 @@ void onReceive(int packetSize) {
   if (packetSize == 0) return;          // if there's no packet, return
 
   // read packet header bytes:
+  int relay = LoRa.read();
+  int HSBtimerRelay = LoRa.read();
+  int LSBtimerRelay = LoRa.read();
   int recipient = LoRa.read();          // recipient address
   int recipientFinal = LoRa.read();     // recipient address Final
   byte sender = LoRa.read();            // sender address
   byte senderReqRes = LoRa.read();     // sender request data address
   int flagPhasa = LoRa.read();
-  byte incomingMsgId = LoRa.read();     // incoming msg ID
-  byte incomingLength = LoRa.read();    // incoming msg length
+  //  byte incomingMsgId = LoRa.read();     // incoming msg ID
+  //  byte incomingLength = LoRa.read();    // incoming msg length
 
   String incoming = "";
 
@@ -110,18 +122,17 @@ void onReceive(int packetSize) {
     incoming += (char)LoRa.read();
   }
 
-  if (incomingLength != incoming.length()) {   // check length for error
-    Serial.println("error: message length does not match length");
-    return;                             // skip rest of function
-  }
+  //  if (incomingLength != incoming.length()) {   // check length for error
+  //    Serial.println("error: message length does not match length");
+  //    return;                             // skip rest of function
+  //  }
 
   // if the recipient isn't this device or broadcast,
   if (recipient != localAddress && recipient != 0xFF) {
-    Serial.println("This message is not for me.");
+    //    Serial.println("This message is not for me.");
     return;                             // skip rest of function
   }
 
-  Serial.println(incoming);
   if (flagPhasa == 0) {
     Serial.println("Phase Error");
   }
@@ -136,7 +147,26 @@ void onReceive(int packetSize) {
     }
 
     for (int i = 0; i <= flag_dataParse; i++) {
-      Serial.println(dataSensor[i]);
+      if (dataSensor[0] == "oke" && i == 0) {
+        Serial.println("node " + String(senderReqRes) + " aman");
+        Serial.println(relay);
+        Serial.println(HSBtimerRelay);
+        Serial.println(LSBtimerRelay);
+      }
+      else {
+        if (i == 0) {
+          Serial.println("Tegangan: " + dataSensor[i]+" V");
+        }
+        else if (i == 1) {
+          Serial.println("Arus: " + dataSensor[i]+ " A");
+        }
+        else if (i == 2) {
+          Serial.println("Power: " + dataSensor[i]+ " W");
+        }
+        else if (i == 3) {
+          Serial.println("Energy: " + dataSensor[i]+" Wh");
+        }
+      }
     }
 
     for (int i = 0; i <= flag_dataParse; i++) {
