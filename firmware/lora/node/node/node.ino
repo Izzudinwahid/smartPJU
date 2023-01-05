@@ -128,10 +128,10 @@ void onReceive(int packetSize) {
     }
 
     if (incoming == "sensor") {
-      //      if (relay == 1)
-      //        digitalWrite(pinRelay, HIGH);
-      //      else
-      //        digitalWrite(pinRelay, LOW);
+      if (relay == 1)
+        digitalWrite(pinRelay, HIGH);
+      else
+        digitalWrite(pinRelay, LOW);
 
       //      EEPROM.write(0, relay);
       flag = 1;
@@ -375,14 +375,14 @@ void setup() {
 
 void loop() {
   if (millis() - previousMillis > interval) {
-    if (statusRelay == 1 && flag == 1) {
-      digitalWrite(pinRelay, HIGH);
-      statusRelay = 0;
-    }
-    else if(statusRelay == 0 && flag == 1){
-      digitalWrite(pinRelay, LOW);
-      statusRelay = 1;
-    }
+    //    if (statusRelay == 1 && flag == 1) {
+    //      digitalWrite(pinRelay, HIGH);
+    //      statusRelay = 0;
+    //    }
+    //    else if(statusRelay == 0 && flag == 1){
+    //      digitalWrite(pinRelay, LOW);
+    //      statusRelay = 1;
+    //    }
 
     readSensor();
     previousMillis = millis();

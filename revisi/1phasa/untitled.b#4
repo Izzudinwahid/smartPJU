@@ -2038,7 +2038,7 @@ http://www.bccomponents.com/</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="default">
+<designrules name="default *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -2073,7 +2073,7 @@ design rules under a new name.</description>
 <param name="msWidth" value="6mil"/>
 <param name="msDrill" value="0.35mm"/>
 <param name="msMicroVia" value="9.99mm"/>
-<param name="msBlindViaRatio" value="0.5"/>
+<param name="msBlindViaRatio" value="12"/>
 <param name="rvPadTop" value="0.25"/>
 <param name="rvPadInner" value="0.25"/>
 <param name="rvPadBottom" value="0.25"/>
@@ -2611,7 +2611,6 @@ design rules under a new name.</description>
 <wire x1="5.541034375" y1="11.5117625" x2="6.566159375" y2="10.4866375" width="0.254" layer="16"/>
 <wire x1="6.566159375" y1="10.4866375" x2="11.0815875" y2="10.4866375" width="0.254" layer="16"/>
 <wire x1="11.0815875" y1="10.4866375" x2="13.53185625" y2="12.93690625" width="0.254" layer="16"/>
-<wire x1="2.9539125" y1="20.3539125" x2="3" y2="20.4" width="0.254" layer="16"/>
 <wire x1="13.53185625" y1="12.93690625" x2="32.64980625" y2="12.93690625" width="0.254" layer="16"/>
 <wire x1="32.64980625" y1="12.93690625" x2="36.0791625" y2="9.50755" width="0.254" layer="16"/>
 <wire x1="36.0791625" y1="9.50755" x2="52.318271875" y2="9.50755" width="0.254" layer="16"/>
@@ -2740,7 +2739,6 @@ design rules under a new name.</description>
 <wire x1="33.279871875" y1="73.637078125" x2="32.879340625" y2="74.037609375" width="0.254" layer="1"/>
 <wire x1="32.879340625" y1="74.037609375" x2="32.879340625" y2="75.888221875" width="0.254" layer="1"/>
 <wire x1="32.879340625" y1="75.888221875" x2="32.9968" y2="76.00568125" width="0.254" layer="1"/>
-<wire x1="63.33371875" y1="2.39135625" x2="60.92158125" y2="2.39135625" width="0.254" layer="1"/>
 <wire x1="63.33371875" y1="2.39135625" x2="48.33371875" y2="2.39135625" width="0.254" layer="1"/>
 <wire x1="12.678725" y1="61.861715625" x2="12.636328125" y2="61.861715625" width="0.254" layer="1"/>
 <wire x1="12.636328125" y1="61.861715625" x2="11.020421875" y2="61.861715625" width="0.254" layer="1"/>
@@ -2783,8 +2781,6 @@ design rules under a new name.</description>
 <wire x1="53.98875625" y1="37.609546875" x2="53.957125" y2="37.609546875" width="0.254" layer="16"/>
 <wire x1="53.957125" y1="37.609546875" x2="52.28643125" y2="37.609546875" width="0.254" layer="16"/>
 <wire x1="52.28643125" y1="37.609546875" x2="52.262278125" y2="37.6337" width="0.254" layer="16"/>
-<wire x1="48.034309375" y1="37.6337" x2="48.01719375" y2="37.616584375" width="0.254" layer="16"/>
-<wire x1="44.24085625" y1="37.616584375" x2="43.989309375" y2="37.86813125" width="0.254" layer="16"/>
 <wire x1="50.422171875" y1="30.286315625" x2="50.678565625" y2="30.286315625" width="0.254" layer="16"/>
 <wire x1="50.678565625" y1="30.286315625" x2="52.233746875" y2="30.286315625" width="0.254" layer="16"/>
 <wire x1="52.233746875" y1="30.286315625" x2="52.241996875" y2="30.278065625" width="0.254" layer="16"/>
@@ -2844,7 +2840,6 @@ design rules under a new name.</description>
 <wire x1="58.063934375" y1="52.524640625" x2="46.543809375" y2="52.524640625" width="0.254" layer="16"/>
 <wire x1="45.96451875" y1="53.10393125" x2="45.96451875" y2="54.0769875" width="0.254" layer="16"/>
 <wire x1="46.543809375" y1="52.524640625" x2="45.96451875" y2="53.10393125" width="0.254" layer="16"/>
-<wire x1="23.5577375" y1="39.702371875" x2="23.489709375" y2="39.63434375" width="0.254" layer="1"/>
 <wire x1="1.669653125" y1="15.352003125" x2="1.143" y2="15.87865625" width="0.254" layer="1"/>
 <wire x1="1.143" y1="15.87865625" x2="1.143" y2="36.57571875" width="0.254" layer="1"/>
 <wire x1="1.143" y1="36.57571875" x2="2.515046875" y2="37.947765625" width="0.254" layer="1"/>
@@ -3389,7 +3384,6 @@ design rules under a new name.</description>
 <wire x1="43.529009375" y1="76.4121" x2="42.224628125" y2="75.10771875" width="0.254" layer="1"/>
 <wire x1="42.224628125" y1="75.10771875" x2="42.224628125" y2="73.22695" width="0.254" layer="1"/>
 <wire x1="42.224628125" y1="73.22695" x2="41.349275" y2="72.351596875" width="0.254" layer="1"/>
-<wire x1="41.349275" y1="72.351596875" x2="41.344753125" y2="72.347075" width="0.254" layer="1"/>
 <wire x1="30.655771875" y1="64.255953125" x2="30.655771875" y2="60.29985625" width="0.254" layer="16"/>
 <wire x1="30.655771875" y1="60.29985625" x2="29.575440625" y2="59.219525" width="0.254" layer="16"/>
 <wire x1="29.575440625" y1="59.219525" x2="22.4777375" y2="59.219525" width="0.254" layer="16"/>
@@ -3762,51 +3756,6 @@ design rules under a new name.</description>
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
 <errors>
-<approved hash="2,20,ba78bb76af0aae04"/>
-<approved hash="2,20,ba07bb35cf49ce7b"/>
-<approved hash="4,1,6b7e0c527508d621"/>
-<approved hash="4,1,9d95e7d0ad7a824d"/>
-<approved hash="4,1,fd9587d09d7a624d"/>
-<approved hash="4,1,b5d74cd761ff98ff"/>
-<approved hash="4,1,e8d3631b4de90224"/>
-<approved hash="4,1,55ecb5e8981d1d2e"/>
-<approved hash="4,1,fdec4de8185c8553"/>
-<approved hash="4,2,b5d74cd761ff98ff"/>
-<approved hash="4,2,05d4fc9251baa8fc"/>
-<approved hash="4,3,b5d74cd761ff98ff"/>
-<approved hash="4,3,05d4fc9251baa8fc"/>
-<approved hash="4,4,b5d74cd761ff98ff"/>
-<approved hash="4,4,05d4fc9251baa8fc"/>
-<approved hash="4,5,b5d74cd761ff98ff"/>
-<approved hash="4,5,05d4fc9251baa8fc"/>
-<approved hash="4,6,b5d74cd761ff98ff"/>
-<approved hash="4,6,05d4fc9251baa8fc"/>
-<approved hash="4,7,05d4fc9251baa8fc"/>
-<approved hash="4,7,b5d74cd761ff98ff"/>
-<approved hash="4,8,05d4fc9251baa8fc"/>
-<approved hash="4,8,b5d74cd761ff98ff"/>
-<approved hash="4,9,05d4fc9251baa8fc"/>
-<approved hash="4,9,b5d74cd761ff98ff"/>
-<approved hash="4,10,05d4fc9251baa8fc"/>
-<approved hash="4,10,b5d74cd761ff98ff"/>
-<approved hash="4,11,05d4fc9251baa8fc"/>
-<approved hash="4,11,b5d74cd761ff98ff"/>
-<approved hash="4,12,05d4fc9251baa8fc"/>
-<approved hash="4,12,b5d74cd761ff98ff"/>
-<approved hash="4,13,05d4fc9251baa8fc"/>
-<approved hash="4,13,b5d74cd761ff98ff"/>
-<approved hash="4,14,05d4fc9251baa8fc"/>
-<approved hash="4,14,b5d74cd761ff98ff"/>
-<approved hash="4,15,05d4fc9251baa8fc"/>
-<approved hash="4,15,b5d74cd761ff98ff"/>
-<approved hash="4,16,05d4fc9251baa8fc"/>
-<approved hash="4,16,b5d74cd761ff98ff"/>
-<approved hash="4,16,55ecb5e8981d1d2e"/>
-<approved hash="4,16,fdec4de8185c8553"/>
-<approved hash="4,1,05d4fc9251baa8fc"/>
-<approved hash="4,1,1d269972834a5bfb"/>
-<approved hash="4,1,59acd78e6979ccd8"/>
-<approved hash="4,1,c5739e4a4d2a4af6"/>
 <approved hash="4,1,6af339155963fb55"/>
 <approved hash="4,1,b4bf89636377ec4f"/>
 <approved hash="4,1,27f1daac1c57e33b"/>
@@ -3821,52 +3770,12 @@ design rules under a new name.</description>
 <approved hash="4,1,70cf35e64f2607f4"/>
 <approved hash="4,1,9daf969a75f0d5c5"/>
 <approved hash="4,1,e5d6f19a51907539"/>
-<approved hash="4,2,bbc9440ef83607f1"/>
-<approved hash="4,3,bbc9440ef83607f1"/>
-<approved hash="4,4,bbc9440ef83607f1"/>
-<approved hash="4,5,bbc9440ef83607f1"/>
-<approved hash="4,6,bbc9440ef83607f1"/>
-<approved hash="4,7,bbc9440ef83607f1"/>
-<approved hash="4,8,bbc9440ef83607f1"/>
-<approved hash="4,9,bbc9440ef83607f1"/>
-<approved hash="4,10,bbc9440ef83607f1"/>
-<approved hash="4,11,bbc9440ef83607f1"/>
-<approved hash="4,12,bbc9440ef83607f1"/>
-<approved hash="4,13,bbc9440ef83607f1"/>
-<approved hash="4,14,bbc9440ef83607f1"/>
-<approved hash="4,15,bbc9440ef83607f1"/>
 <approved hash="4,16,bbc9440ef83607f1"/>
 <approved hash="4,16,b38e4c49c87137b6"/>
 <approved hash="4,16,a2af9bdb6323df94"/>
 <approved hash="4,16,70cf35e64f2607f4"/>
 <approved hash="2,20,0f1ef0d3ccb7337a"/>
 <approved hash="2,20,0f1cf0efac8b5378"/>
-<approved hash="1,20,15e1c1ddc01d1421"/>
-<approved hash="1,20,1500c1fcc0851479"/>
-<approved hash="1,20,77071b3b187b7447"/>
-<approved hash="1,20,1403c03fc07d1441"/>
-<approved hash="1,20,f402f87ef83cf440"/>
-<approved hash="1,20,1701c33dc07d1441"/>
-<approved hash="1,20,1b0fc173c00b1a77"/>
-<approved hash="1,20,f500f97cf804f478"/>
-<approved hash="1,20,1a0dc071c0331a4f"/>
-<approved hash="1,20,1402c0fec0bd1441"/>
-<approved hash="1,20,74051839187b7447"/>
-<approved hash="1,20,75e719db181b7427"/>
-<approved hash="4,2,b38e4c49c87137b6"/>
-<approved hash="4,3,b38e4c49c87137b6"/>
-<approved hash="4,4,b38e4c49c87137b6"/>
-<approved hash="4,5,b38e4c49c87137b6"/>
-<approved hash="4,6,b38e4c49c87137b6"/>
-<approved hash="4,7,b38e4c49c87137b6"/>
-<approved hash="4,8,b38e4c49c87137b6"/>
-<approved hash="4,9,b38e4c49c87137b6"/>
-<approved hash="4,10,b38e4c49c87137b6"/>
-<approved hash="4,11,b38e4c49c87137b6"/>
-<approved hash="4,12,b38e4c49c87137b6"/>
-<approved hash="4,13,b38e4c49c87137b6"/>
-<approved hash="4,14,b38e4c49c87137b6"/>
-<approved hash="4,15,b38e4c49c87137b6"/>
 <approved hash="1,20,1400411441751461"/>
 <approved hash="1,20,1402411641551441"/>
 <approved hash="1,20,1a02401640541a40"/>
