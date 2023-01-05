@@ -19366,14 +19366,12 @@ Source: 008-0260-0_E.pdf</description>
 <library name="TB7.62">
 <packages>
 <package name="TB7.62">
-<pad name="T1" x="-3.7" y="-0.6" drill="1.7" diameter="3" shape="octagon"/>
-<pad name="T2" x="3.9" y="-0.6" drill="1.7" diameter="3" shape="octagon"/>
-<wire x1="-5.6" y1="3" x2="-5.5" y2="3" width="0.127" layer="21"/>
-<wire x1="-5.5" y1="3" x2="6" y2="3" width="0.127" layer="21"/>
-<wire x1="6" y1="3" x2="6" y2="-2.6" width="0.127" layer="21"/>
-<wire x1="6" y1="-2.6" x2="-5.7" y2="-2.6" width="0.127" layer="21"/>
-<wire x1="-5.7" y1="-2.6" x2="-5.7" y2="3" width="0.127" layer="21"/>
-<wire x1="-5.7" y1="3" x2="-5.6" y2="3" width="0.127" layer="21"/>
+<pad name="T1" x="-3.8" y="0" drill="1.7" diameter="3" shape="octagon"/>
+<pad name="T2" x="3.8" y="0" drill="1.7" diameter="3" shape="octagon"/>
+<wire x1="-8.4" y1="5.7" x2="8.7" y2="5.7" width="0.127" layer="21"/>
+<wire x1="8.7" y1="5.7" x2="8.7" y2="-5.3" width="0.127" layer="21"/>
+<wire x1="8.7" y1="-5.3" x2="-8.4" y2="-5.3" width="0.127" layer="21"/>
+<wire x1="-8.4" y1="-5.3" x2="-8.4" y2="5.7" width="0.127" layer="21"/>
 <text x="-4.3" y="1.4" size="1.27" layer="21">1</text>
 <text x="3.4" y="1.3" size="1.27" layer="21">2</text>
 </package>
