@@ -2073,7 +2073,7 @@ design rules under a new name.</description>
 <param name="msWidth" value="6mil"/>
 <param name="msDrill" value="0.35mm"/>
 <param name="msMicroVia" value="9.99mm"/>
-<param name="msBlindViaRatio" value="12"/>
+<param name="msBlindViaRatio" value="0.5"/>
 <param name="rvPadTop" value="0.25"/>
 <param name="rvPadInner" value="0.25"/>
 <param name="rvPadBottom" value="0.25"/>
@@ -3788,6 +3788,20 @@ design rules under a new name.</description>
 <approved hash="1,20,1600401440541640"/>
 <approved hash="1,20,15e040f441351421"/>
 <approved hash="1,20,1be041f440341a20"/>
+<approved hash="4,2,bbc9440ef83607f1"/>
+<approved hash="4,3,bbc9440ef83607f1"/>
+<approved hash="4,4,bbc9440ef83607f1"/>
+<approved hash="4,5,bbc9440ef83607f1"/>
+<approved hash="4,6,bbc9440ef83607f1"/>
+<approved hash="4,7,bbc9440ef83607f1"/>
+<approved hash="4,8,bbc9440ef83607f1"/>
+<approved hash="4,9,bbc9440ef83607f1"/>
+<approved hash="4,10,bbc9440ef83607f1"/>
+<approved hash="4,11,bbc9440ef83607f1"/>
+<approved hash="4,12,bbc9440ef83607f1"/>
+<approved hash="4,13,bbc9440ef83607f1"/>
+<approved hash="4,14,bbc9440ef83607f1"/>
+<approved hash="4,15,bbc9440ef83607f1"/>
 </errors>
 </board>
 </drawing>
