@@ -132,7 +132,6 @@ void onReceive(int packetSize) {
         digitalWrite(pinRelay, HIGH);
       else
         digitalWrite(pinRelay, LOW);
-      flag = 1;
       //      EEPROM.write(0, relay);
       statusRelay = relay;
       CONSTANTARELAY = relay;
@@ -142,6 +141,8 @@ void onReceive(int packetSize) {
       Serial.println(interval);
       HSBCONSTANTA = HSBtimerRelay;
       LSBCONSTANTA = LSBtimerRelay;
+      previousMillis = 0;
+      flag = 1;
       sendMessage(dataSensor[0]);
     }
     else if (incoming == "connection") {
@@ -287,6 +288,7 @@ void onJavaScript(void) {
 void setup() {
   Serial.begin(9600);                   // initialize serial
   pinMode(pinRelay, OUTPUT);
+  digitalWrite(pinRelay, LOW);
   while (!Serial);
 
   //  EEPROM.begin(EEPROM_SIZE);
@@ -373,12 +375,12 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - previousMillis > interval) {
-    if (statusRelay == 1 && flag == 1) {
+  if (millis() - previousMillis > interval && flag == 1) {
+    if (statusRelay == 1) {
       digitalWrite(pinRelay, HIGH);
       statusRelay = 0;
     }
-    else if (statusRelay == 0 && flag == 1) {
+    else if (statusRelay == 0) {
       digitalWrite(pinRelay, LOW);
       statusRelay = 1;
     }
