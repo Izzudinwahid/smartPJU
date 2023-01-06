@@ -128,10 +128,10 @@ void onReceive(int packetSize) {
     }
 
     if (incoming == "sensor") {
-      //      if (relay == 1)
-      //        digitalWrite(pinRelay, HIGH);
-      //      else
-      //        digitalWrite(pinRelay, LOW);
+      if (relay == 1)
+        digitalWrite(pinRelay, HIGH);
+      else
+        digitalWrite(pinRelay, LOW);
 
       //      EEPROM.write(0, relay);
       flag = 1;
@@ -389,5 +389,5 @@ void loop() {
   readSensor();
   server.handleClient();
   onReceive(LoRa.parsePacket());
-//  delay(200);
+  //  delay(200);
 }

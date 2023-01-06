@@ -128,10 +128,10 @@ void onReceive(int packetSize) {
     }
 
     if (incoming == "sensor") {
-      //      if (relay == 1)
-      //        digitalWrite(pinRelay, HIGH);
-      //      else
-      //        digitalWrite(pinRelay, LOW);
+      if (relay == 1)
+        digitalWrite(pinRelay, HIGH);
+      else
+        digitalWrite(pinRelay, LOW);
       flag = 1;
       //      EEPROM.write(0, relay);
       statusRelay = relay;
