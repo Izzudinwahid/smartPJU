@@ -19670,70 +19670,6 @@ Source: 008-0260-0_E.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="rtc3231">
-<packages>
-<package name="RTC3231">
-<wire x1="-16" y1="17" x2="22" y2="17" width="0.1524" layer="21"/>
-<wire x1="22" y1="17" x2="22" y2="-5" width="0.1524" layer="21"/>
-<wire x1="22" y1="-5" x2="-16" y2="-5" width="0.1524" layer="21"/>
-<wire x1="-16" y1="-5" x2="-16" y2="17" width="0.1524" layer="21"/>
-<pad name="GND" x="-15.24" y="12.7" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="VCC" x="-15.24" y="10.16" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="SDA" x="-15.24" y="7.62" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="SCL" x="-15.24" y="5.08" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="SQW" x="-15.24" y="2.54" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="32K" x="-15.24" y="0" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="GND1" x="20.32" y="10.16" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="VCC1" x="20.32" y="7.62" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="SDA1" x="20.32" y="5.08" drill="0.6" diameter="1.6764" shape="octagon"/>
-<pad name="SCL1" x="20.32" y="2.54" drill="0.6" diameter="1.6764" shape="octagon"/>
-</package>
-</packages>
-<symbols>
-<symbol name="RTC3231">
-<wire x1="-5.08" y1="10.16" x2="-5.08" y2="-7.62" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="-7.62" x2="10.16" y2="-7.62" width="0.1524" layer="94"/>
-<wire x1="10.16" y1="-7.62" x2="10.16" y2="10.16" width="0.1524" layer="94"/>
-<wire x1="10.16" y1="10.16" x2="-5.08" y2="10.16" width="0.1524" layer="94"/>
-<pin name="GND" x="-10.16" y="7.62" length="middle"/>
-<pin name="VCC" x="-10.16" y="5.08" length="middle"/>
-<pin name="SDA" x="-10.16" y="2.54" length="middle"/>
-<pin name="SCL" x="-10.16" y="0" length="middle"/>
-<pin name="SQW" x="-10.16" y="-2.54" length="middle"/>
-<pin name="32K" x="-10.16" y="-5.08" length="middle"/>
-<pin name="GND1" x="15.24" y="5.08" length="middle" rot="R180"/>
-<pin name="VCC1" x="15.24" y="2.54" length="middle" rot="R180"/>
-<pin name="SDA1" x="15.24" y="0" length="middle" rot="R180"/>
-<pin name="SCL1" x="15.24" y="-2.54" length="middle" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="RTC3231" prefix="RTC3231" uservalue="yes">
-<gates>
-<gate name="G$1" symbol="RTC3231" x="0" y="-2.54"/>
-</gates>
-<devices>
-<device name="" package="RTC3231">
-<connects>
-<connect gate="G$1" pin="32K" pad="32K"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="GND1" pad="GND1"/>
-<connect gate="G$1" pin="SCL" pad="SCL"/>
-<connect gate="G$1" pin="SCL1" pad="SCL1"/>
-<connect gate="G$1" pin="SDA" pad="SDA"/>
-<connect gate="G$1" pin="SDA1" pad="SDA1"/>
-<connect gate="G$1" pin="SQW" pad="SQW"/>
-<connect gate="G$1" pin="VCC" pad="VCC"/>
-<connect gate="G$1" pin="VCC1" pad="VCC1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="ESP32-WROOM-32D">
 <packages>
 <package name="MODULE_ESP32-WROOM-32D">
@@ -20037,11 +19973,9 @@ Source: 008-0260-0_E.pdf</description>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="MINI1" library="mini360" deviceset="MINI360" device=""/>
 <part name="SIM800L1" library="sim800l" deviceset="SIM800L" device=""/>
-<part name="RTC1" library="rtc3231" deviceset="RTC3231" device=""/>
 <part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10uF"/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U3" library="ESP32-WROOM-32D" deviceset="ESP32-WROOM-32D" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FUSE-KOTAK1" library="FUSE-KOTAK" deviceset="FUSE-KOTAK" device=""/>
@@ -20270,7 +20204,6 @@ Source: 008-0260-0_E.pdf</description>
 </instance>
 <instance part="MINI1" gate="G$1" x="195.58" y="182.88" smashed="yes" rot="R180"/>
 <instance part="SIM800L1" gate="G$1" x="187.96" y="162.56" smashed="yes"/>
-<instance part="RTC1" gate="G$1" x="129.54" y="160.02" smashed="yes"/>
 <instance part="C13" gate="G$1" x="175.26" y="180.34" smashed="yes" rot="R180">
 <attribute name="NAME" x="173.736" y="179.959" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="173.736" y="185.039" size="1.778" layer="96" rot="R180"/>
@@ -20280,9 +20213,6 @@ Source: 008-0260-0_E.pdf</description>
 </instance>
 <instance part="GND1" gate="1" x="175.26" y="152.4" smashed="yes">
 <attribute name="VALUE" x="172.72" y="149.86" size="1.778" layer="96"/>
-</instance>
-<instance part="GND9" gate="1" x="111.76" y="165.1" smashed="yes">
-<attribute name="VALUE" x="109.22" y="162.56" size="1.778" layer="96"/>
 </instance>
 <instance part="U3" gate="G$1" x="208.28" y="350.52" smashed="yes">
 <attribute name="NAME" x="193.2441" y="382.1145" size="1.778" layer="95"/>
@@ -20482,11 +20412,6 @@ Source: 008-0260-0_E.pdf</description>
 <junction x="175.26" y="177.8"/>
 </segment>
 <segment>
-<pinref part="RTC1" gate="G$1" pin="GND"/>
-<pinref part="GND9" gate="1" pin="GND"/>
-<wire x1="119.38" y1="167.64" x2="111.76" y2="167.64" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U3" gate="G$1" pin="GND"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 <wire x1="228.6" y1="320.04" x2="231.14" y2="320.04" width="0.1524" layer="91"/>
@@ -20603,11 +20528,6 @@ Source: 008-0260-0_E.pdf</description>
 <label x="91.44" y="312.42" size="0.8128" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="RTC1" gate="G$1" pin="VCC"/>
-<wire x1="119.38" y1="165.1" x2="116.84" y2="165.1" width="0.1524" layer="91"/>
-<label x="116.84" y="165.1" size="0.8128" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="U3" gate="G$1" pin="3V3"/>
 <wire x1="228.6" y1="378.46" x2="231.14" y2="378.46" width="0.1524" layer="91"/>
 <label x="231.14" y="378.46" size="0.8128" layer="95" xref="yes"/>
@@ -20639,22 +20559,12 @@ Source: 008-0260-0_E.pdf</description>
 </net>
 <net name="SCL" class="0">
 <segment>
-<pinref part="RTC1" gate="G$1" pin="SCL"/>
-<wire x1="119.38" y1="160.02" x2="116.84" y2="160.02" width="0.1524" layer="91"/>
-<label x="116.84" y="160.02" size="0.8128" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="U3" gate="G$1" pin="IO22"/>
 <wire x1="228.6" y1="340.36" x2="231.14" y2="340.36" width="0.1524" layer="91"/>
 <label x="231.14" y="340.36" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SDA" class="0">
-<segment>
-<pinref part="RTC1" gate="G$1" pin="SDA"/>
-<wire x1="119.38" y1="162.56" x2="116.84" y2="162.56" width="0.1524" layer="91"/>
-<label x="116.84" y="162.56" size="0.8128" layer="95" rot="R180" xref="yes"/>
-</segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="IO21"/>
 <wire x1="228.6" y1="342.9" x2="231.14" y2="342.9" width="0.1524" layer="91"/>
