@@ -1,3 +1,16 @@
+/*
+  LoRa Duplex communication
+
+  Sends a message every half second, and polls continually
+  for new incoming messages. Implements a one-byte addressing scheme,
+  with 0xFF as the broadcast address.
+
+  Uses readString() from Stream class to read payload. The Stream class'
+  timeout may affect other functuons, like the radio's callback. For an
+
+  created 28 April 2017
+  by Tom Igoe
+*/
 #include <SPI.h>              // include libraries
 #include <LoRa.h>
 #include <PZEM004Tv30.h>
@@ -6,60 +19,61 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include <Update.h>
-//#include <EEPROM.h>
 
 //---------PENYIMPANAN-------
-#define EEPROM_SIZE 1
-
-int CONSTANTARELAY = 0;
 int pinRelay = 12;
-int statusRelay;
-int HSBtimer, LSBtimer;
-int HSBCONSTANTA, LSBCONSTANTA;
-int flag = 0;
-float bufferPZEM;
-//int countPZEM = 0;
-int countLamp = 0;
+int flagSwitch = 0;
+int idNode[2]  = {2, 3};
+int phaseNode[2]  = {1, 1};
+int totNode = 2;
+int flagtotNode = 0;
+
 
 //--------Inisialisasi Sensor PZEM------
 #define RX_PZEM 16
 #define TX_PZEM 17
 PZEM004Tv30 pzem(Serial2, RX_PZEM, TX_PZEM);
-String dataSensor[1];
+
+String dataPZEM[1];
 
 
 //--------Inisialisasi LoRa-------------
+
 const int csPin = 5;          // LoRa radio chip select
 const int resetPin = 26;       // LoRa radio reset
 const int irqPin = 1;         // change for your board; must be a hardware interrupt pin
 
 String outgoing;              // outgoing message
+String dataIn = "";
+String dataParse[5];
+String dataSensor[18];
+int statusRelay;
+int flag_dataParse = 0;
+int flagPhase = 0;
+unsigned long timer;
+int HSBtimer, LSBtimer;
+
 byte msgCount = 0;            // count of outgoing messages
-byte localAddress = 0x03;     // address of this device
+byte localAddress = 0x01;     // address of this device
 byte destination = 0x02;      // destination to send to
-int destinationFinal = 0x04;
-int destRegRes = 0x03;
-int flagPhase = 1;
-int CONSTANTAPHASE = 1;
-int CONSSTART = 2;
-int CONSFINISH = 4;
-unsigned long interval = 500;    // 10 s interval to send message
+int destinationFinal = 0x03;
+unsigned long interval = 500;          // interval between sends
 unsigned long previousMillis = 0;  // will store last time message sent
 
 
 
-
-
 void sendMessage(String outgoing) {
-  LoRa.beginPacket();                   // start packet
+  LoRa.beginPacket();
   LoRa.write(statusRelay);
   LoRa.write(HSBtimer);
   LoRa.write(LSBtimer);
   LoRa.write(destination);              // add destination address
   LoRa.write(destinationFinal);         // add destination address Final
   LoRa.write(localAddress);             // add sender address
-  LoRa.write(destRegRes);             // add sender address
+  LoRa.write(localAddress);
   LoRa.write(flagPhase);
+  //  LoRa.write(msgCount);                 // add message ID
+  //  LoRa.write(outgoing.length());        // add payload length
   LoRa.print(outgoing);                 // add payload
   LoRa.endPacket();                     // finish packet and send it
   msgCount++;                           // increment message ID
@@ -68,6 +82,7 @@ void sendMessage(String outgoing) {
 void onReceive(int packetSize) {
   if (packetSize == 0) return;          // if there's no packet, return
 
+  // read packet header bytes:
   int relay = LoRa.read();
   int HSBtimerRelay = LoRa.read();
   int LSBtimerRelay = LoRa.read();
@@ -76,6 +91,8 @@ void onReceive(int packetSize) {
   byte sender = LoRa.read();            // sender address
   byte senderReqRes = LoRa.read();     // sender request data address
   int flagPhasa = LoRa.read();
+  //  byte incomingMsgId = LoRa.read();     // incoming msg ID
+  //  byte incomingLength = LoRa.read();    // incoming msg length
 
   String incoming = "";
 
@@ -83,86 +100,98 @@ void onReceive(int packetSize) {
     incoming += (char)LoRa.read();
   }
 
+  //  if (incomingLength != incoming.length()) {   // check length for error
+  //    Serial.println("error: message length does not match length");
+  //    return;                             // skip rest of function
+  //  }
+
   // if the recipient isn't this device or broadcast,
   if (recipient != localAddress && recipient != 0xFF) {
-    Serial.println("This message is not for me.");
+    //    Serial.println("This message is not for me.");
     return;                             // skip rest of function
   }
-  //  Serial.println(relay);
-  //  Serial.println(incoming);
-  if (int(sender) == CONSSTART && int(localAddress) != recipientFinal) {
-    destination = byte(CONSFINISH);
-    destRegRes = senderReqRes;
-    destinationFinal = (byte)recipientFinal;
-    flagPhase = flagPhasa;
-    statusRelay = relay;
-    //    timer = (HSBtimer * 255 + LSBtimer) * 1000;
-    HSBtimer = HSBtimerRelay;
-    LSBtimer = LSBtimerRelay;
-    sendMessage(incoming);
-    flagPhase = CONSTANTAPHASE;
-    statusRelay = CONSTANTARELAY;
-    //    timer = CONSTANTATIMER;
-    HSBtimer = HSBCONSTANTA;
-    LSBtimer = LSBCONSTANTA;
+
+  if (flagPhasa == 0) {
+    Serial.println("Phase tidak sesuai");
   }
-  else if (int(sender) == CONSFINISH && int(localAddress) != recipientFinal) {
-    destination = byte(CONSSTART);
-    destRegRes = senderReqRes;
-    destinationFinal = (byte)recipientFinal;
-    flagPhase = flagPhasa;
-    statusRelay = relay;
-    //    timer = (HSBtimer * 255 + LSBtimer) * 1000;
-    HSBtimer = HSBtimerRelay;
-    LSBtimer = LSBtimerRelay;
-    sendMessage(incoming);
-    flagPhase = CONSTANTAPHASE;
-    statusRelay = CONSTANTARELAY;
-    //    timer = CONSTANTATIMER;
-    HSBtimer = HSBCONSTANTA ;
-    LSBtimer = LSBCONSTANTA ;
-  }
-  else {
-    destination = CONSSTART;
-    destinationFinal = (byte)senderReqRes;
-    destRegRes = localAddress;
-    if (flagPhasa != flagPhase) {
-      flagPhase = 0;
+  else if (flagPhasa == 1) {
+    for (int i = 0; i < incoming.length(); i++) {
+      if (incoming[i] == '#') {
+        flag_dataParse++;
+      }
+      else {
+        dataSensor[flag_dataParse] += incoming[i];
+      }
     }
 
-    if (incoming == "sensor") {
-      if (relay == 1)
-        digitalWrite(pinRelay, HIGH);
-      else
-        digitalWrite(pinRelay, LOW);
+    for (int i = 0; i <= flag_dataParse; i++) {
+      if (dataSensor[0] == "oke") {
+        if (i == 0) {
+          Serial.println("node " + String(senderReqRes) + " aman");
+          //        Serial.println(relay);
+        }
+        else if (i == 1) {
+          Serial.println("Tegangan: " + dataSensor[i] + " V");
+        }
+        else if (i == 2) {
+          Serial.println("Arus: " + dataSensor[i] + " A");
+        }
+        else if (i == 3) {
+          Serial.println("Power: " + dataSensor[i] + " W");
+        }
+        else if (i == 4) {
+          Serial.println("Energy: " + dataSensor[i] + " Wh");
+        }
+        else if (i == 5) {
+          Serial.println("Lampu yang menyala: " + dataSensor[i] + " buah");
+        }
+      }
+      else {
+        if (i == 0) {
+          Serial.println("Tegangan: " + dataSensor[i] + " V");
+        }
+        else if (i == 1) {
+          Serial.println("Arus: " + dataSensor[i] + " A");
+        }
+        else if (i == 2) {
+          Serial.println("Power: " + dataSensor[i] + " W");
+        }
+        else if (i == 3) {
+          Serial.println("Energy: " + dataSensor[i] + " Wh");
+        }
+        else if (i == 4) {
+          Serial.println("Lampu yang menyala: " + dataSensor[i] + " buah");
+        }
+      }
+    }
 
-      //      EEPROM.write(0, relay);
-      statusRelay = relay;
-      CONSTANTARELAY = relay;
-      HSBtimer = HSBtimerRelay;
-      LSBtimer = LSBtimerRelay;
-      interval = (HSBtimer * 255 + LSBtimer) * 10;
-      Serial.println(interval);
-      HSBCONSTANTA = HSBtimerRelay;
-      LSBCONSTANTA = LSBtimerRelay;
-      previousMillis = 0;
-      flag = 1;
-      delay(3000);
-      readSensor();
-      sendMessage(dataSensor[0]);
+    for (int i = 0; i <= flag_dataParse; i++) {
+      dataSensor[i] = "";
     }
-    else if (incoming == "connection") {
-      Serial.println("datamasuk");
-      sendMessage("oke#" + dataSensor[0]);
-    }
-    flagPhase = CONSTANTAPHASE;
+    flag_dataParse = 0;
   }
+  else if (flagPhasa == 3) {
+    Serial.println("masuk ke Phase 3");
+  }
+
+  // if message is for this device, or broadcast, print details:
+  //  Serial.println("Received from: 0x" + String(sender, HEX));
+  //  Serial.println("Received Request from: 0x" + String(senderReqRes, HEX));
+  //  Serial.println("Sent to: 0x" + String(recipient, HEX));
+  //  Serial.println("Sent to: 0x" + String(recipientFinal, HEX));
+  //  Serial.println("Phase: " + String(flagPhasa));
+  //  Serial.println("Message ID: " + String(incomingMsgId));
+  //  Serial.println("Message length: " + String(incomingLength));
+  //  Serial.println("Message: " + incoming);
+  //  Serial.println("RSSI: " + String(LoRa.packetRssi()));
+  //  Serial.println("Snr: " + String(LoRa.packetSnr()));
+  //  Serial.println();
 }
 
 
 //---------Inisialiasi OTA Web---------
 const char *host = "esp32";
-const char *ssid = "SmartPJU-node3";
+const char *ssid = "SmartPJU-gateway";
 const char *password = "12345678";
 
 WebServer server(80);
@@ -292,14 +321,11 @@ void onJavaScript(void) {
 }
 
 
+
 void setup() {
   Serial.begin(9600);                   // initialize serial
   pinMode(pinRelay, OUTPUT);
-  digitalWrite(pinRelay, LOW);
   while (!Serial);
-
-  //  EEPROM.begin(EEPROM_SIZE);
-  //  digitalWrite(pinRelay, EEPROM.read(0));
 
   //  ------LoRa---------
   LoRa.setPins(csPin, resetPin, irqPin);// set CS, reset, IRQ pin
@@ -379,23 +405,61 @@ void setup() {
     }
   });
   server.begin();
+
 }
 
 void loop() {
-  if (millis() - previousMillis > interval && flag == 1) {
-    //    if (statusRelay == 1 && flag == 1) {
-    //      digitalWrite(pinRelay, HIGH);
-    //      statusRelay = 0;
-    //    }
-    //    else if (statusRelay == 0 && flag == 1) {
-    //      digitalWrite(pinRelay, LOW);
-    //      statusRelay = 1;
-    //    }
+  if (Serial.available()) {
+    char inByte = (char)Serial.read();
+    dataIn += inByte;
+    if (inByte == '\n') {
+      for (int i = 0; i < dataIn.length() - 1; i++) {
+        if (dataIn[i] == '*') {
+          flag_dataParse++;
+        }
+        else {
+          dataParse[flag_dataParse] += dataIn[i];
+        }
+      }
+      destinationFinal = dataParse[0].toInt();
+      flagPhase = dataParse[1].toInt();
+      statusRelay = dataParse[2].toInt();
+      //      timer = dataParse[3].toInt();
+      HSBtimer = dataParse[3].toInt() / 255;
+      LSBtimer = dataParse[3].toInt() % 255;
+      sendMessage(dataParse[4]);
+      dataIn = "";
+      flag_dataParse = 0;
+      interval = 2000;
+      for (int i = 0; i < 5; i++) {
+        dataParse[i] = "";
+      }
+    }
+  }
+  if (millis() - previousMillis > interval ) {
+    flagSwitch++;
     readSensor();
+    if (flagSwitch >= 2) {
+      //        sendMessage(String(idNode[flagtotNode]) + '*' + String(phaseNode[flagtotNode]) + "*1*1*connection");
+      destinationFinal = idNode[flagtotNode];
+      flagPhase = phaseNode[flagtotNode];
+      statusRelay = 1;
+      HSBtimer = 500 / 255;
+      LSBtimer = 500 % 255;
+      String tes = "connection";
+      sendMessage(tes);
+      flagtotNode++;
+      flagSwitch = 0;
+      interval = 500;
+      if (flagtotNode >= totNode ) {
+        flagtotNode = 0;
+      }
+      Serial.println(tes +" "+ String(idNode[flagtotNode]));
+      Serial.println();
+    }
     previousMillis = millis();
   }
 
   server.handleClient();
   onReceive(LoRa.parsePacket());
-
 }
