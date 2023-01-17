@@ -87,8 +87,7 @@ void onReceive(int packetSize) {
     Serial.println("This message is not for me.");
     return;                             // skip rest of function
   }
-  //  Serial.println(relay);
-  //  Serial.println(incoming);
+
   if (int(sender) == CONSSTART && int(localAddress) != recipientFinal) {
     destination = byte(CONSFINISH);
     destRegRes = senderReqRes;
@@ -130,6 +129,7 @@ void onReceive(int packetSize) {
     }
 
     if (incoming == "sensor") {
+
       if (relay == 1)
         digitalWrite(pinRelay, HIGH);
       else

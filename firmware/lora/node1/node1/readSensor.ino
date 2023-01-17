@@ -19,6 +19,6 @@ void readSensor() {
   if (countLamp < 0) {
     countLamp = 0;
   }
-  dataSensor[0] = String(voltPZEM) + '#' + String(currentPZEM) + '#' + String(powerPZEM) + '#' + String(energyPZEM) + '#' + String(countLamp);
+  dataSensor[0] = String(voltPZEM) + '#' + String(currentPZEM) + '#' + String(powerPZEM) + '#' + String(energyPZEM) + '#' + String(countLamp) + '#' + String(statusRelay);
   Serial.println(dataSensor[0]);
 }

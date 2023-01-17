@@ -19,20 +19,37 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include <Update.h>
+//#include <SoftwareSerial.h>
 
 //---------PENYIMPANAN-------
 int pinRelay = 12;
-int flagSwitch = 0;
+unsigned int flagSwitch = 0;
+unsigned int flagSendServer = 0;
 int idNode[2]  = {2, 3};
 int phaseNode[2]  = {1, 1};
 int totNode = 2;
 int flagtotNode = 0;
+float bufferPZEM;
+int countLamp = 0;
+int idDevice[3] = {1, 2, 3};
+int flagidDevice = 0;
+int jmlDevice = 3;
+float allDataSensor[3][6] = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
 
+
+//--------Inisialisasi SIM800L----------
+//SoftwareSerial gprs(15, 14);
+String dataMasuk = "";
+//String Server = "AT+HTTPPARA=\"URL\",\"http://13.228.184.92/Insert.php?amr_id=\"" + String(1) + "&Kwh=" + String(1) + "&Arus=" + String(1) + "&Watt=" + String(1) + "&Tegangan=" + String(1) + "&Status=" + String(1) + "&Biaya=" + String(1) + "&jumlah_lampu=" + String(1) + "&lampu_hidup=" + String (1) + "&lampu_mati=" + String (1);
+String amrId = "12s345";
+int statusRe = 0;
+int jumlahLampu = 10;
+int biaya = 1;
 
 //--------Inisialisasi Sensor PZEM------
 #define RX_PZEM 16
 #define TX_PZEM 17
-PZEM004Tv30 pzem(Serial2, RX_PZEM, TX_PZEM);
+PZEM004Tv30 pzem(Serial1, RX_PZEM, TX_PZEM);
 
 String dataPZEM[1];
 
@@ -47,7 +64,7 @@ String outgoing;              // outgoing message
 String dataIn = "";
 String dataParse[5];
 String dataSensor[18];
-int statusRelay;
+int statusRelay = 0;
 int flag_dataParse = 0;
 int flagPhase = 0;
 unsigned long timer;
@@ -95,7 +112,7 @@ void onReceive(int packetSize) {
   //  byte incomingLength = LoRa.read();    // incoming msg length
 
   String incoming = "";
-
+  allDataSensor[int(senderReqRes) - 1][5] = relay;
   while (LoRa.available()) {
     incoming += (char)LoRa.read();
   }
@@ -131,36 +148,56 @@ void onReceive(int packetSize) {
           //        Serial.println(relay);
         }
         else if (i == 1) {
-          Serial.println("Tegangan: " + dataSensor[i] + " V");
+          allDataSensor[int(senderReqRes) - 1][0] = dataSensor[i].toFloat();
+          Serial.println("Tegangan: " + String(allDataSensor[int(senderReqRes) - 1][0]) + " V");
+
         }
         else if (i == 2) {
-          Serial.println("Arus: " + dataSensor[i] + " A");
+          allDataSensor[int(senderReqRes) - 1][1] = dataSensor[i].toFloat();
+          Serial.println("Arus: " + String(allDataSensor[int(senderReqRes) - 1][1]) + " A");
+
         }
         else if (i == 3) {
-          Serial.println("Power: " + dataSensor[i] + " W");
+          allDataSensor[int(senderReqRes) - 1][2] = dataSensor[i].toFloat();
+          Serial.println("Power: " + String(allDataSensor[int(senderReqRes) - 1][2]) + " W");
+
         }
         else if (i == 4) {
-          Serial.println("Energy: " + dataSensor[i] + " Wh");
+          allDataSensor[int(senderReqRes) - 1][3] = dataSensor[i].toFloat();
+          Serial.println("Energy: " + String(allDataSensor[int(senderReqRes) - 1][3]) + " Wh");
+
         }
         else if (i == 5) {
-          Serial.println("Lampu yang menyala: " + dataSensor[i] + " buah");
+          allDataSensor[int(senderReqRes) - 1][4] = dataSensor[i].toFloat();
+          Serial.println("Lampu yang menyala: " + String(allDataSensor[int(senderReqRes) - 1][4]) + " buah");
+
         }
       }
       else {
         if (i == 0) {
-          Serial.println("Tegangan: " + dataSensor[i] + " V");
+          allDataSensor[int(senderReqRes) - 1][0] = dataSensor[i].toFloat();
+          Serial.println("Tegangan: " + String(allDataSensor[int(senderReqRes) - 1][0]) + " V");
+
         }
         else if (i == 1) {
-          Serial.println("Arus: " + dataSensor[i] + " A");
+          allDataSensor[int(senderReqRes) - 1][1] = dataSensor[i].toFloat();
+          Serial.println("Arus: " + String(allDataSensor[int(senderReqRes) - 1][1]) + " A");
+
         }
         else if (i == 2) {
-          Serial.println("Power: " + dataSensor[i] + " W");
+          allDataSensor[int(senderReqRes) - 1][2] = dataSensor[i].toFloat();
+          Serial.println("Power: " + String(allDataSensor[int(senderReqRes) - 1][2]) + " W");
+
         }
         else if (i == 3) {
-          Serial.println("Energy: " + dataSensor[i] + " Wh");
+          allDataSensor[int(senderReqRes) - 1][3] = dataSensor[i].toFloat();
+          Serial.println("Energy: " + String(allDataSensor[int(senderReqRes) - 1][3]) + " Wh");
+
         }
         else if (i == 4) {
-          Serial.println("Lampu yang menyala: " + dataSensor[i] + " buah");
+          allDataSensor[int(senderReqRes) - 1][4] = dataSensor[i].toFloat();
+          Serial.println("Lampu yang menyala: " + String(allDataSensor[int(senderReqRes) - 1][4]) + " buah");
+
         }
       }
     }
@@ -324,6 +361,11 @@ void onJavaScript(void) {
 
 void setup() {
   Serial.begin(9600);                   // initialize serial
+  Serial2.begin(9600, SERIAL_8N1, 15, 14);
+  //  gprs.begin(9600);
+  //  Serial1.begin(9600);
+  dataMasuk.reserve(200);
+
   pinMode(pinRelay, OUTPUT);
   while (!Serial);
 
@@ -413,7 +455,8 @@ void loop() {
     char inByte = (char)Serial.read();
     dataIn += inByte;
     if (inByte == '\n') {
-      for (int i = 0; i < dataIn.length() - 1; i++) {
+      for (int i = 0; i < dataIn.length() - 2; i++) {
+
         if (dataIn[i] == '*') {
           flag_dataParse++;
         }
@@ -427,7 +470,25 @@ void loop() {
       //      timer = dataParse[3].toInt();
       HSBtimer = dataParse[3].toInt() / 255;
       LSBtimer = dataParse[3].toInt() % 255;
-      sendMessage(dataParse[4]);
+
+      if (destinationFinal == 1) {
+        if (statusRelay == 1) {
+          digitalWrite(pinRelay, HIGH);
+          allDataSensor[0][5] = 1;
+        }
+        else {
+          digitalWrite(pinRelay, LOW);
+          allDataSensor[0][5] = 0;
+        }
+        interval = dataParse[3].toInt() * 10;
+        previousMillis = 0;
+        delay(3000);
+        readSensor();
+      }
+      else {
+        sendMessage(dataParse[4]);
+      }
+
       dataIn = "";
       flag_dataParse = 0;
       interval = 2000;
@@ -436,14 +497,15 @@ void loop() {
       }
     }
   }
+
   if (millis() - previousMillis > interval ) {
     flagSwitch++;
+    flagSendServer++;
     readSensor();
-    if (flagSwitch >= 2) {
-      //        sendMessage(String(idNode[flagtotNode]) + '*' + String(phaseNode[flagtotNode]) + "*1*1*connection");
+    if (flagSwitch == 2) {
       destinationFinal = idNode[flagtotNode];
       flagPhase = phaseNode[flagtotNode];
-      statusRelay = 1;
+      statusRelay = allDataSensor[0][5];
       HSBtimer = 500 / 255;
       LSBtimer = 500 % 255;
       String tes = "connection";
@@ -454,8 +516,18 @@ void loop() {
       if (flagtotNode >= totNode ) {
         flagtotNode = 0;
       }
-      Serial.println(tes +" "+ String(idNode[flagtotNode]));
+      Serial.println(tes + " Node " + String(idNode[flagtotNode]));
       Serial.println();
+    }
+
+    if (flagSendServer == 500) {
+      sendServer();
+      flagidDevice++;
+      flagSendServer = 0;
+      if (flagidDevice >= jmlDevice) {
+        flagidDevice = 0;
+      }
+      //      delay(5000);
     }
     previousMillis = millis();
   }
