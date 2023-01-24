@@ -161,7 +161,7 @@ void onReceive(int packetSize) {
 
 //---------Inisialiasi OTA Web---------
 const char *host = "esp32";
-const char *ssid = "SmartPJU-node2";
+const char *ssid = "smartPJU-node2";
 const char *password = "12345678";
 
 WebServer server(80);
@@ -295,7 +295,6 @@ void setup() {
   Serial.begin(9600);                   // initialize serial
   pinMode(pinRelay, OUTPUT);
   digitalWrite(pinRelay, LOW);
-  while (!Serial);
 
   //  EEPROM.begin(EEPROM_SIZE);
   //  digitalWrite(pinRelay, EEPROM.read(0));
@@ -305,7 +304,6 @@ void setup() {
 
   if (!LoRa.begin(915E6)) {             // initialize ratio at 915 MHz
     Serial.println("LoRa init failed. Check your connections.");
-    while (true);                       // if failed, do nothing
   }
 
   //  -------OTA----------
@@ -378,6 +376,7 @@ void setup() {
     }
   });
   server.begin();
+
 }
 
 void loop() {
@@ -396,5 +395,4 @@ void loop() {
 
   server.handleClient();
   onReceive(LoRa.parsePacket());
-
 }

@@ -35,6 +35,7 @@ int idDevice[3] = {1, 2, 3};
 int flagidDevice = 0;
 int jmlDevice = 3;
 float allDataSensor[3][6] = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
+int flagInitLora = 0;
 
 
 //--------Inisialisasi SIM800L----------
@@ -64,7 +65,7 @@ String outgoing;              // outgoing message
 String dataIn = "";
 String dataParse[5];
 String dataSensor[18];
-int statusRelay = 0;
+int statusRelay = 1;
 int flag_dataParse = 0;
 int flagPhase = 0;
 unsigned long timer;
@@ -367,6 +368,7 @@ void setup() {
   dataMasuk.reserve(200);
 
   pinMode(pinRelay, OUTPUT);
+  digitalWrite(pinRelay, statusRelay);
   while (!Serial);
 
   //  ------LoRa---------
@@ -374,7 +376,7 @@ void setup() {
 
   if (!LoRa.begin(915E6)) {             // initialize ratio at 915 MHz
     Serial.println("LoRa init failed. Check your connections.");
-    while (true);                       // if failed, do nothing
+    flagInitLora = 1;
   }
 
   //  -------OTA----------
@@ -482,7 +484,7 @@ void loop() {
         }
         interval = dataParse[3].toInt() * 10;
         previousMillis = 0;
-        delay(3000);
+        //        delay(3000);
         readSensor();
       }
       else {
@@ -509,7 +511,12 @@ void loop() {
       HSBtimer = 500 / 255;
       LSBtimer = 500 % 255;
       String tes = "connection";
-      sendMessage(tes);
+      if (flagInitLora == 1) {
+        Serial.println("Lora tidak terdeteksi");
+      }
+      else {
+        sendMessage(tes);
+      }
       flagtotNode++;
       flagSwitch = 0;
       interval = 500;
@@ -532,6 +539,6 @@ void loop() {
     previousMillis = millis();
   }
 
-  server.handleClient();
   onReceive(LoRa.parsePacket());
+  server.handleClient();
 }
