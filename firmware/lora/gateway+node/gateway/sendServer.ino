@@ -53,8 +53,6 @@ void sendServer() {
   Serial.write(0x0d);
   Serial.write(0x0a);
 
-
-
   Serial2.print("AT+HTTPPARA=");
   Serial2.print('"');
   Serial2.print("URL");
@@ -146,8 +144,76 @@ void sendServer() {
 
   Serial2.println("AT+SAPBR=0,1");
   ShowResponse(5000);
-
 }
+
+
+void cekRelayServer() {
+  Serial2.println("AT+SAPBR=3,1,\"CONTYPE\",\"GPRS\"");
+  ShowResponse(3000);
+
+  Serial2.println("AT+SAPBR=3,1,\"APN\",\"internet\"");
+  ShowResponse(3000);
+
+  Serial2.println("AT+SAPBR=1,1");
+  ShowResponse(10000);
+
+  Serial2.println("AT+HTTPINIT");
+  ShowResponse(10000);
+
+  Serial.print("AT+HTTPPARA=");
+  Serial.print('"');
+  Serial.print("URL");
+  Serial.print('"');
+  Serial.print(',');
+  Serial.print('"');
+  Serial.print("http:");
+  Serial.print('/');
+  Serial.print('/');
+  Serial.print("13.228.184.92/baca-data.php?amr_id=");
+  Serial.print(flagSwitch); //>>>>>>  variable 1 (temperature)
+  Serial.print('"');
+  Serial.write(0x0d);
+  Serial.write(0x0a);
+
+  Serial2.print("AT+HTTPPARA=");
+  Serial2.print('"');
+  Serial2.print("URL");
+  Serial2.print('"');
+  Serial2.print(',');
+  Serial2.print('"');
+  Serial2.print("http:");
+  Serial2.print('/');
+  Serial2.print('/');
+  Serial2.print("13.228.184.92/baca-data.php?amr_id=");
+  Serial2.print(flagSwitch); //>>>>>>  variable 1 (temperature)
+  Serial2.print('"');
+  Serial2.write(0x0d);
+  Serial2.write(0x0a);
+  ShowResponse(10000);
+
+  // set http action type 0 = GET, 1 = POST, 2 = HEAD
+  Serial2.println("AT+HTTPACTION=0");
+  GetResponse(10000);
+
+  Serial2.println("AT+HTTPREAD");
+  GetResponse(10000);               // respon di simpan kedalam variabel dataMasuk
+
+  Serial.println("Full data :");
+  if (dataMasuk.indexOf("+HTTPREAD: 1") > -1) {
+    relayServer[flagSwitch] = dataMasuk[28];
+    Serial.println(dataMasuk[28]);
+  }
+  else {
+    relayServer[flagSwitch] = "10";
+  }
+
+  Serial2.println("AT+HTTPTERM");
+  ShowResponse(10000);
+
+  Serial2.println("AT+SAPBR=0,1");
+  ShowResponse(10000);
+}
+
 
 void ShowResponse(int wait) {
   Serial.print("response : ");
@@ -172,8 +238,6 @@ void GetResponse(int wait) {
     }
     delay(1);
   }
-  Serial.println(dataMasuk);
-  Serial.println();
 }
 
 

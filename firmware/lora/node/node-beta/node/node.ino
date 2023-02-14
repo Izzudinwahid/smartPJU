@@ -88,7 +88,7 @@ void onReceive(int packetSize) {
     return;                             // skip rest of function
   }
   //  Serial.println(relay);
-  //  Serial.println(incoming);
+  Serial.println(incoming);
   if (int(sender) == CONSSTART && int(localAddress) != recipientFinal) {
     destination = byte(CONSFINISH);
     destRegRes = senderReqRes;
@@ -146,7 +146,7 @@ void onReceive(int packetSize) {
       LSBCONSTANTA = LSBtimerRelay;
       previousMillis = 0;
       flag = 1;
-      delay(3000);
+      //      delay(3000);
       readSensor();
       sendMessage(dataSensor[0]);
     }
@@ -294,7 +294,7 @@ void onJavaScript(void) {
 void setup() {
   Serial.begin(9600);                   // initialize serial
   pinMode(pinRelay, OUTPUT);
-  digitalWrite(pinRelay, LOW);
+  digitalWrite(pinRelay, 1);
 
   //  EEPROM.begin(EEPROM_SIZE);
   //  digitalWrite(pinRelay, EEPROM.read(0));
@@ -380,7 +380,7 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - previousMillis > interval && flag == 1) {
+  if (millis() - previousMillis > interval ) {
     //    if (statusRelay == 1 && flag == 1) {
     //      digitalWrite(pinRelay, HIGH);
     //      statusRelay = 0;

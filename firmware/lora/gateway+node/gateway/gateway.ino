@@ -25,9 +25,9 @@
 int pinRelay = 12;
 unsigned int flagSwitch = 0;
 unsigned int flagSendServer = 0;
-int idNode[2]  = {2, 3};
-int phaseNode[2]  = {1, 1};
-int totNode = 2;
+int idNode[3]  = {1, 2, 3};
+int phaseNode[3]  = {1, 1, 1};
+int totNode = 3;
 int flagtotNode = 0;
 float bufferPZEM;
 int countLamp = 0;
@@ -35,7 +35,8 @@ int idDevice[3] = {1, 2, 3};
 int flagidDevice = 0;
 int jmlDevice = 3;
 float allDataSensor[3][6] = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
-int flagInitLora = 0;
+String relayServer[3] = {"10", "10", "10"};
+String tes = "";
 
 
 //--------Inisialisasi SIM800L----------
@@ -65,7 +66,7 @@ String outgoing;              // outgoing message
 String dataIn = "";
 String dataParse[5];
 String dataSensor[18];
-int statusRelay = 1;
+int statusRelay = 0;
 int flag_dataParse = 0;
 int flagPhase = 0;
 unsigned long timer;
@@ -114,6 +115,7 @@ void onReceive(int packetSize) {
 
   String incoming = "";
   allDataSensor[int(senderReqRes) - 1][5] = relay;
+
   while (LoRa.available()) {
     incoming += (char)LoRa.read();
   }
@@ -211,19 +213,6 @@ void onReceive(int packetSize) {
   else if (flagPhasa == 3) {
     Serial.println("masuk ke Phase 3");
   }
-
-  // if message is for this device, or broadcast, print details:
-  //  Serial.println("Received from: 0x" + String(sender, HEX));
-  //  Serial.println("Received Request from: 0x" + String(senderReqRes, HEX));
-  //  Serial.println("Sent to: 0x" + String(recipient, HEX));
-  //  Serial.println("Sent to: 0x" + String(recipientFinal, HEX));
-  //  Serial.println("Phase: " + String(flagPhasa));
-  //  Serial.println("Message ID: " + String(incomingMsgId));
-  //  Serial.println("Message length: " + String(incomingLength));
-  //  Serial.println("Message: " + incoming);
-  //  Serial.println("RSSI: " + String(LoRa.packetRssi()));
-  //  Serial.println("Snr: " + String(LoRa.packetSnr()));
-  //  Serial.println();
 }
 
 
@@ -368,7 +357,7 @@ void setup() {
   dataMasuk.reserve(200);
 
   pinMode(pinRelay, OUTPUT);
-  digitalWrite(pinRelay, statusRelay);
+  digitalWrite(pinRelay, 1);
   while (!Serial);
 
   //  ------LoRa---------
@@ -376,7 +365,7 @@ void setup() {
 
   if (!LoRa.begin(915E6)) {             // initialize ratio at 915 MHz
     Serial.println("LoRa init failed. Check your connections.");
-    flagInitLora = 1;
+    //    flagInitLora = 1;
   }
 
   //  -------OTA----------
@@ -482,6 +471,7 @@ void loop() {
           digitalWrite(pinRelay, LOW);
           allDataSensor[0][5] = 0;
         }
+
         interval = dataParse[3].toInt() * 10;
         previousMillis = 0;
         //        delay(3000);
@@ -493,7 +483,7 @@ void loop() {
 
       dataIn = "";
       flag_dataParse = 0;
-      interval = 2000;
+      interval = 500;
       for (int i = 0; i < 5; i++) {
         dataParse[i] = "";
       }
@@ -501,40 +491,58 @@ void loop() {
   }
 
   if (millis() - previousMillis > interval ) {
-    flagSwitch++;
     flagSendServer++;
-    readSensor();
-    if (flagSwitch == 2) {
+
+    if (flagSendServer % 10 == 0) {
+      readSensor();
       destinationFinal = idNode[flagtotNode];
       flagPhase = phaseNode[flagtotNode];
-      statusRelay = allDataSensor[0][5];
+      statusRelay = relayServer[flagtotNode].toInt();
       HSBtimer = 500 / 255;
       LSBtimer = 500 % 255;
-      String tes = "connection";
-      if (flagInitLora == 1) {
-        Serial.println("Lora tidak terdeteksi");
+      int changeInt = allDataSensor[flagtotNode][5];
+      if (changeInt == relayServer[flagtotNode].toInt() || relayServer[flagtotNode].toInt() == 10  ) {
+        tes = "connection";
+        Serial.println(tes + " Node " + String(idNode[flagtotNode]));
+      }
+      else {
+        tes = "sensor";
+        Serial.println(tes + " Node " + String(idNode[flagtotNode]));
+      }
+
+      if (flagtotNode == 0) {
+        if (statusRelay == 0) {
+          digitalWrite(pinRelay, LOW);
+        }
+        else if (statusRelay == 1) {
+          digitalWrite(pinRelay, HIGH);
+        }
       }
       else {
         sendMessage(tes);
+        //        Serial.println("masuk Node");
       }
       flagtotNode++;
-      flagSwitch = 0;
-      interval = 500;
       if (flagtotNode >= totNode ) {
         flagtotNode = 0;
       }
-      Serial.println(tes + " Node " + String(idNode[flagtotNode]));
-      Serial.println();
     }
 
-    if (flagSendServer == 500) {
+    if (flagSendServer % 50 == 0) {
+      cekRelayServer();
+      flagSwitch++;
+      if (flagSwitch >= jmlDevice ) {
+        flagSwitch = 0;
+      }
+    }
+
+    if (flagSendServer == 700) {
       sendServer();
       flagidDevice++;
       flagSendServer = 0;
       if (flagidDevice >= jmlDevice) {
         flagidDevice = 0;
       }
-      //      delay(5000);
     }
     previousMillis = millis();
   }

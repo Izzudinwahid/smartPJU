@@ -12,7 +12,7 @@ float kelembaban;
 float suhu;
 void setup() {
   Serial.begin(115200);
-  Serial2.begin(9600, SERIAL_8N1, 15, 14);
+  Serial2.begin(9600, SERIAL_8N1, 14, 15);
   //  Serial2.begin(9600);
   //  dhtSensor.begin();
   Serial.println("Serial2 GPRS Test");
@@ -30,7 +30,7 @@ void loop() {
   Serial.println();
   ShowSerialData();
   //  ReadSensor();
-  String str = "GET https://api.thingspeak.com/update?api_key=" + Write_API_key + "&field1=" + String(200) ;
+  String str = "GET https://api.thingspeak.com/update?api_key=" + Write_API_key + "&field1=" + String(1100) ;
   Serial.println(str);  delay(2000);
   Serial2.println(str); delay(4000);
   ShowSerialData();
