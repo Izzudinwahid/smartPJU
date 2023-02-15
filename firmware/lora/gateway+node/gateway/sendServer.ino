@@ -30,7 +30,7 @@ void sendServer() {
   Serial.print("13.228.184.92/Insert.php?amr_id=");
   ///xxx is the api key
 
-  Serial.print(amrId); //>>>>>>  variable 1 (temperature)
+  Serial.print(amrId[flagidDevice]); //>>>>>>  variable 1 (temperature)
   Serial.print("&Kwh=");
   Serial.print(allDataSensor[flagidDevice][3]);
   Serial.print("&Arus=");
@@ -65,7 +65,7 @@ void sendServer() {
   Serial2.print("13.228.184.92/Insert.php?amr_id=");
   ///xxx is the api key
 
-  Serial2.print(amrId); //>>>>>>  variable 1 (temperature)
+  Serial2.print(amrId[flagidDevice]); //>>>>>>  variable 1 (temperature)
   Serial2.print("&Kwh=");
   Serial2.print(allDataSensor[flagidDevice][3]);
   Serial2.print("&Arus=");
@@ -170,7 +170,7 @@ void cekRelayServer() {
   Serial.print('/');
   Serial.print('/');
   Serial.print("13.228.184.92/baca-data.php?amr_id=");
-  Serial.print(flagSwitch); //>>>>>>  variable 1 (temperature)
+  Serial.print(amrId[flagSwitch]); //>>>>>>  variable 1 (temperature)
   Serial.print('"');
   Serial.write(0x0d);
   Serial.write(0x0a);
@@ -185,7 +185,7 @@ void cekRelayServer() {
   Serial2.print('/');
   Serial2.print('/');
   Serial2.print("13.228.184.92/baca-data.php?amr_id=");
-  Serial2.print(flagSwitch); //>>>>>>  variable 1 (temperature)
+  Serial2.print(amrId[flagSwitch]); //>>>>>>  variable 1 (temperature)
   Serial2.print('"');
   Serial2.write(0x0d);
   Serial2.write(0x0a);
