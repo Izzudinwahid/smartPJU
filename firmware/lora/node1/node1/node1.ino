@@ -13,7 +13,7 @@
 
 int CONSTANTARELAY = 0;
 int pinRelay = 12;
-int statusRelay;
+int statusRelay = 1;
 int HSBtimer, LSBtimer;
 int HSBCONSTANTA, LSBCONSTANTA;
 int flag = 0;
@@ -133,7 +133,7 @@ void onReceive(int packetSize) {
     if (incoming == "sensor") {
       if (relay == 1)
         digitalWrite(pinRelay, HIGH);
-      else
+      else if (relay == 0)
         digitalWrite(pinRelay, LOW);
 
       //      EEPROM.write(0, relay);
@@ -147,11 +147,19 @@ void onReceive(int packetSize) {
       LSBCONSTANTA = LSBtimerRelay;
       previousMillis = 0;
       flag = 1;
-//      delay(3000);
+      //      delay(3000);
       readSensor();
       sendMessage(dataSensor[0]);
     }
     else if (incoming == "connection") {
+      if (relay == 1) {
+        digitalWrite(pinRelay, HIGH);
+        statusRelay = relay;
+      }
+      else if (relay == 0) {
+        digitalWrite(pinRelay, LOW);
+        statusRelay = relay;
+      }
       Serial.println("datamasuk");
       sendMessage("oke#" + dataSensor[0]);
     }

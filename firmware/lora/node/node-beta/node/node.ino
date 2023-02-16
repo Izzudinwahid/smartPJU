@@ -151,10 +151,14 @@ void onReceive(int packetSize) {
       sendMessage(dataSensor[0]);
     }
     else if (incoming == "connection") {
-      if (relay == 1)
+      if (relay == 1) {
         digitalWrite(pinRelay, HIGH);
-      else if (relay == 0)
+        statusRelay = relay;
+      }
+      else if (relay == 0) {
         digitalWrite(pinRelay, LOW);
+        statusRelay = relay;
+      }
       Serial.println("datamasuk");
       sendMessage("oke#" + dataSensor[0]);
     }
