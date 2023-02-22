@@ -1,4 +1,7 @@
 void readSensor() {
+
+  pzem.resetEnergy();
+
   float voltPZEM = pzem.voltage();
   float currentPZEM = pzem.current();
   float powerPZEM = pzem.power();
@@ -19,6 +22,14 @@ void readSensor() {
   if (countLamp < 0) {
     countLamp = 0;
   }
-  dataSensor[0] = String(voltPZEM) + '#' + String(currentPZEM) + '#' + String(powerPZEM) + '#' + String(energyPZEM) + '#' + String(countLamp) + '#' + String(statusRelay);
-  Serial.println(dataSensor[0]);
+
+  if (isnan(voltPZEM)) {
+    voltPZEM = 0;
+    currentPZEM = 0;
+    powerPZEM = 0;
+    energyPZEM = 0;
+  }
+  dataSensor[0] = String(voltPZEM) + '#' + String(currentPZEM) + '#' + String(powerPZEM) + '#' + String(energyPZEM) + '#' + String(countLamp) + '#' + String(statusRelayNode);
+  dataSensor[1] = String(voltPZEM) + ',' + String(currentPZEM) + ',' + String(powerPZEM) + ',' + String(energyPZEM) + ',' + String(countLamp) + ',' + String(statusRelayNode);
+  //  Serial.println(dataSensor[0]);
 }

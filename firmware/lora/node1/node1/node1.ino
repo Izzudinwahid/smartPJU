@@ -6,6 +6,7 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include <Update.h>
+#include "SPIFFS.h"
 //#include <EEPROM.h>
 
 //---------PENYIMPANAN-------
@@ -13,19 +14,23 @@
 
 int CONSTANTARELAY = 0;
 int pinRelay = 12;
-int statusRelay = 1;
+int statusRelay = 0;
+int statusRelayNode = 0;
 int HSBtimer, LSBtimer;
 int HSBCONSTANTA, LSBCONSTANTA;
 int flag = 0;
 float bufferPZEM;
 //int countPZEM = 0;
 int countLamp = 0;
+unsigned int flagSPIFFS = 0;
+int relaySPIFFS = 0;
+int flagSwitch = 0;
 
 //--------Inisialisasi Sensor PZEM------
 #define RX_PZEM 16
 #define TX_PZEM 17
 PZEM004Tv30 pzem(Serial2, RX_PZEM, TX_PZEM);
-String dataSensor[1];
+String dataSensor[2];
 
 
 //--------Inisialisasi LoRa-------------
@@ -131,13 +136,17 @@ void onReceive(int packetSize) {
     }
 
     if (incoming == "sensor") {
-      if (relay == 1)
+      if (relay == 1) {
         digitalWrite(pinRelay, HIGH);
-      else if (relay == 0)
+        statusRelay = relay;
+        statusRelayNode = relay;
+      }
+      else if (relay == 0) {
         digitalWrite(pinRelay, LOW);
-
+        statusRelay = relay;
+        statusRelayNode = relay;
+      }
       //      EEPROM.write(0, relay);
-      statusRelay = relay;
       CONSTANTARELAY = relay;
       HSBtimer = HSBtimerRelay;
       LSBtimer = LSBtimerRelay;
@@ -155,10 +164,12 @@ void onReceive(int packetSize) {
       if (relay == 1) {
         digitalWrite(pinRelay, HIGH);
         statusRelay = relay;
+        statusRelayNode = relay;
       }
       else if (relay == 0) {
         digitalWrite(pinRelay, LOW);
         statusRelay = relay;
+        statusRelayNode = relay;
       }
       Serial.println("datamasuk");
       sendMessage("oke#" + dataSensor[0]);
@@ -300,14 +311,91 @@ void onJavaScript(void) {
 }
 
 
+
+//---------SPIFFS----------
+void readSPIFFS(String directory) {
+  String dataIn = "";
+  String dataSPIFFS [2] = {"", ""};
+  int flag = 0;
+  File file = SPIFFS.open(directory);
+  if (!file) {
+    Serial.println("Failed to open file for reading");
+    return;
+  }
+  if (directory == "/datarelay.txt") {
+    while (file.available()) {
+      char charIn = (char)file.read();
+      dataIn += charIn;
+    }
+
+    for (int i = 0; i < dataIn.length() - 2; i++) {
+      if (dataIn[i] == ',' ) {
+        flag++;
+      }
+      else {
+        dataSPIFFS [flag] += dataIn[i];
+      }
+    }
+    relaySPIFFS = dataSPIFFS[0].toInt();
+    flagSPIFFS = dataSPIFFS[1].toInt() ;
+    Serial.println(relaySPIFFS);
+    Serial.println(flagSPIFFS);
+  }
+  else {
+    while (file.available()) {
+      Serial.write(file.read());
+    }
+  }
+
+  file.close();
+}
+
+void writeSPIFFS(String directory, String dataIn) {
+  File fileWrite = SPIFFS.open(directory, FILE_WRITE);
+  if (!fileWrite) {
+    Serial.println("tidak dapat menulis data");
+    return;
+  }
+  if (fileWrite.println(dataIn)) {
+    Serial.println("data telah diwrite");
+  }
+  else {
+    Serial.println("penulisan data gagal");
+  }
+  fileWrite.close();
+}
+
+void appendSPIFFS(String directory, String dataIn) {
+  File fileAppend = SPIFFS.open(directory, FILE_APPEND);
+  if (!fileAppend) {
+    Serial.println("tidak dapat menulis data");
+    return;
+  }
+  if (fileAppend.println(dataIn)) {
+    Serial.println("data telah diAppend");
+  }
+  else {
+    Serial.println("penulisan data gagal");
+  }
+  fileAppend.close();
+}
+
+
 void setup() {
   Serial.begin(9600);                   // initialize serial
-  pinMode(pinRelay, OUTPUT);
-  digitalWrite(pinRelay, 1);
   while (!Serial);
 
-  //  EEPROM.begin(EEPROM_SIZE);
-  //  digitalWrite(pinRelay, EEPROM.read(0));
+  //-----SPIFFS-------
+  if (!SPIFFS.begin(true)) {
+    Serial.println("An Error has occurred while mounting SPIFFS");
+    return;
+  }
+
+  readSPIFFS("/datarelay.txt");
+
+  pinMode(pinRelay, OUTPUT);
+  digitalWrite(pinRelay, relaySPIFFS);
+  statusRelayNode = relaySPIFFS;
 
   //  ------LoRa---------
   LoRa.setPins(csPin, resetPin, irqPin);// set CS, reset, IRQ pin
@@ -390,15 +478,25 @@ void setup() {
 
 void loop() {
   if (millis() - previousMillis > interval ) {
-    //    if (statusRelay == 1 && flag == 1) {
-    //      digitalWrite(pinRelay, HIGH);
-    //      statusRelay = 0;
-    //    }
-    //    else if (statusRelay == 0 && flag == 1) {
-    //      digitalWrite(pinRelay, LOW);
-    //      statusRelay = 1;
-    //    }
+    flagSwitch++;
     readSensor();
+    if (flagSwitch >= 10) {
+      if (flagSPIFFS >= 100000) {
+        writeSPIFFS("/datalogging.txt", dataSensor[1]);
+        writeSPIFFS("/datarelay.txt", String(statusRelayNode) + "," + String(flagSPIFFS));
+        //        readSPIFFS("/datalogging.txt");
+        flagSPIFFS = 0;
+      }
+      else {
+        appendSPIFFS("/datalogging.txt", dataSensor[1] );
+        writeSPIFFS("/datarelay.txt", String(statusRelayNode) + "," + String(flagSPIFFS));
+        //        readSPIFFS("/datalogging.txt");
+        flagSPIFFS++;
+      }
+
+      flagSwitch = 0;
+
+    }
     previousMillis = millis();
   }
 
