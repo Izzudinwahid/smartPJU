@@ -1,7 +1,4 @@
 void readSensor() {
-
-  pzem.resetEnergy();
-
   float voltPZEM = pzem.voltage();
   float currentPZEM = pzem.current();
   float powerPZEM = pzem.power();

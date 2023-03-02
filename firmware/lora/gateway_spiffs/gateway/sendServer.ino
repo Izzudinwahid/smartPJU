@@ -201,7 +201,9 @@ void cekRelayServer() {
   Serial.println("Full data :");
   if (dataMasuk.indexOf("+HTTPREAD: 1") > -1) {
     relayServer[flagSwitch] = dataMasuk[28];
+    dateServer[flagSwitch] = dataMasuk[30];
     Serial.println(dataMasuk[28]);
+    Serial.println(dataMasuk[30]);
   }
   else {
     relayServer[flagSwitch] = "10";

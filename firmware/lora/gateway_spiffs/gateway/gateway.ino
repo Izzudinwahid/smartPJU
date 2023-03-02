@@ -40,6 +40,8 @@ String relayServer[3] = {"10", "10", "10"};
 String tes = "";
 unsigned int flagSPIFFS = 0;
 int relaySPIFFS = 0;
+String dateServer[3] = {"0", "0", "0"};
+int flagDateServer = 0;
 
 
 //--------Inisialisasi SIM800L----------
@@ -585,11 +587,11 @@ void loop() {
       LSBtimer = 500 % 255;
       int changeInt = allDataSensor[flagtotNode][5];
       if (changeInt == relayServer[flagtotNode].toInt() || relayServer[flagtotNode].toInt() == 10  ) {
-        tes = "connection";
+        tes = "connection" + dateServer[flagtotNode];
         Serial.println(tes + " Node " + String(idNode[flagtotNode]));
       }
       else {
-        tes = "sensor";
+        tes = "sensor" + dateServer[flagtotNode];
         Serial.println(tes + " Node " + String(idNode[flagtotNode]));
       }
 
@@ -601,6 +603,14 @@ void loop() {
         else if (statusRelay == 1) {
           digitalWrite(pinRelay, HIGH);
           allDataSensor[flagtotNode][5] = 1;
+        }
+
+        if (dateServer[0].toInt() == 1 && flagDateServer == 0 ) {
+          pzem.resetEnergy();
+          flagDateServer = 1;
+        }
+        else if (dateServer[0].toInt() == 0 && flagDateServer == 1) {
+          flagDateServer = 0;
         }
       }
       else {
@@ -621,7 +631,7 @@ void loop() {
       }
     }
 
-    if (flagSendServer == 700) {
+    if (flagSendServer == 300) {
       sendServer();
       flagidDevice++;
       flagSendServer = 0;

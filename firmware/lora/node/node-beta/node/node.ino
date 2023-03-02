@@ -25,6 +25,7 @@ int countLamp = 0;
 unsigned int flagSPIFFS = 0;
 int relaySPIFFS = 0;
 int flagSwitch = 0;
+int flagDateServer = 0;
 
 //--------Inisialisasi Sensor PZEM------
 #define RX_PZEM 16
@@ -134,7 +135,7 @@ void onReceive(int packetSize) {
       flagPhase = 0;
     }
 
-    if (incoming == "sensor") {
+    if (incoming == "sensor0") {
       if (relay == 1) {
         digitalWrite(pinRelay, HIGH);
         statusRelay = relay;
@@ -144,6 +145,10 @@ void onReceive(int packetSize) {
         digitalWrite(pinRelay, LOW);
         statusRelay = relay;
         statusRelayNode = relay;
+      }
+
+      if (flagDateServer == 1) {
+        flagDateServer = 0;
       }
       //      EEPROM.write(0, relay);
 
@@ -160,7 +165,7 @@ void onReceive(int packetSize) {
       readSensor();
       sendMessage(dataSensor[0]);
     }
-    else if (incoming == "connection") {
+    else if (incoming == "sensor1") {
       if (relay == 1) {
         digitalWrite(pinRelay, HIGH);
         statusRelay = relay;
@@ -171,6 +176,62 @@ void onReceive(int packetSize) {
         statusRelay = relay;
         statusRelayNode = relay;
       }
+
+      if (flagDateServer == 0) {
+        pzem.resetEnergy();
+        flagDateServer = 1;
+      }
+      //      EEPROM.write(0, relay);
+
+      CONSTANTARELAY = relay;
+      HSBtimer = HSBtimerRelay;
+      LSBtimer = LSBtimerRelay;
+      interval = (HSBtimer * 255 + LSBtimer) * 10;
+      Serial.println(interval);
+      HSBCONSTANTA = HSBtimerRelay;
+      LSBCONSTANTA = LSBtimerRelay;
+      previousMillis = 0;
+      flag = 1;
+      //      delay(3000);
+      readSensor();
+      sendMessage(dataSensor[0]);
+    }
+    else if (incoming == "connection0") {
+      if (relay == 1) {
+        digitalWrite(pinRelay, HIGH);
+        statusRelay = relay;
+        statusRelayNode = relay;
+      }
+      else if (relay == 0) {
+        digitalWrite(pinRelay, LOW);
+        statusRelay = relay;
+        statusRelayNode = relay;
+      }
+
+      if (flagDateServer == 1) {
+        flagDateServer = 0;
+      }
+
+      Serial.println("datamasuk");
+      sendMessage("oke#" + dataSensor[0]);
+    }
+    else if (incoming == "connection1") {
+      if (relay == 1) {
+        digitalWrite(pinRelay, HIGH);
+        statusRelay = relay;
+        statusRelayNode = relay;
+      }
+      else if (relay == 0) {
+        digitalWrite(pinRelay, LOW);
+        statusRelay = relay;
+        statusRelayNode = relay;
+      }
+
+      if (flagDateServer == 0) {
+        pzem.resetEnergy();
+        flagDateServer = 1;
+      }
+
       Serial.println("datamasuk");
       sendMessage("oke#" + dataSensor[0]);
     }
@@ -384,7 +445,7 @@ void appendSPIFFS(String directory, String dataIn) {
 void setup() {
   Serial.begin(9600);                   // initialize serial
   while (!Serial);
-  
+
   //-----SPIFFS-------
   if (!SPIFFS.begin(true)) {
     Serial.println("An Error has occurred while mounting SPIFFS");
