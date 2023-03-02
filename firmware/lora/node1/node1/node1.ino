@@ -14,6 +14,7 @@
 
 int CONSTANTARELAY = 0;
 int pinRelay = 12;
+int pinLora = 13;
 int statusRelay = 0;
 int statusRelayNode = 0;
 int HSBtimer, LSBtimer;
@@ -93,6 +94,13 @@ void onReceive(int packetSize) {
   if (recipient != localAddress && recipient != 0xFF) {
     Serial.println("This message is not for me.");
     return;                             // skip rest of function
+  }
+
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(pinLora, 1);
+    delay(100);
+    digitalWrite(pinLora, 0);
+    delay(100)
   }
   //  Serial.println(relay);
   //  Serial.println(incoming);
@@ -455,6 +463,8 @@ void setup() {
 
   readSPIFFS("/datarelay.txt");
 
+  pinMode(pinLora, OUTPUT);
+  digitalWrite(pinLora, 0);
   pinMode(pinRelay, OUTPUT);
   digitalWrite(pinRelay, relaySPIFFS);
   statusRelayNode = relaySPIFFS;

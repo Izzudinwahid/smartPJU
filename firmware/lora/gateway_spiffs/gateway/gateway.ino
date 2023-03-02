@@ -24,6 +24,7 @@
 
 //---------PENYIMPANAN-------
 int pinRelay = 12;
+int pinLora = 13;
 unsigned int flagSwitch = 0;
 unsigned int flagSendServer = 0;
 int idNode[3]  = {1, 2, 3};
@@ -50,7 +51,7 @@ String dataMasuk = "";
 //String Server = "AT+HTTPPARA=\"URL\",\"http://13.228.184.92/Insert.php?amr_id=\"" + String(1) + "&Kwh=" + String(1) + "&Arus=" + String(1) + "&Watt=" + String(1) + "&Tegangan=" + String(1) + "&Status=" + String(1) + "&Biaya=" + String(1) + "&jumlah_lampu=" + String(1) + "&lampu_hidup=" + String (1) + "&lampu_mati=" + String (1);
 String amrId[3] = {"19A20", "19A21", "19A22"};
 int statusRe = 0;
-int jumlahLampu = 10;
+int jumlahLampu = 0;
 int biaya = 1;
 
 //--------Inisialisasi Sensor PZEM------
@@ -153,7 +154,12 @@ void onReceive(int packetSize) {
       if (dataSensor[0] == "oke") {
         if (i == 0) {
           Serial.println("node " + String(senderReqRes) + " aman");
-          //        Serial.println(relay);
+          for (int i = 0; i < 3; i++) {
+            digitalWrite(pinLora, 1);
+            delay(100);
+            digitalWrite(pinLora, 0);
+            delay(100);
+          }
         }
         else if (i == 1) {
           allDataSensor[int(senderReqRes) - 1][0] = dataSensor[i].toFloat();
@@ -439,6 +445,8 @@ void setup() {
 
   readSPIFFS("/datarelay.txt");
 
+  pinMode(pinLora, OUTPUT);
+  digitalWrite(pinLora, 0);
   pinMode(pinRelay, OUTPUT);
   digitalWrite(pinRelay, relaySPIFFS);
   allDataSensor[0][5] = relaySPIFFS;

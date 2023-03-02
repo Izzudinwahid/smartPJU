@@ -48,7 +48,7 @@ void sendServer() {
   Serial.print("&lampu_hidup=");
   Serial.print(allDataSensor[flagidDevice][4]);
   Serial.print("&lampu_mati=");
-  Serial.print(jumlahLampu - allDataSensor[flagidDevice][4]);
+  Serial.print(jumlahLampu);
   Serial.print('"');
   Serial.write(0x0d);
   Serial.write(0x0a);
