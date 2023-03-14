@@ -100,7 +100,7 @@ void onReceive(int packetSize) {
     digitalWrite(pinLora, 1);
     delay(100);
     digitalWrite(pinLora, 0);
-    delay(100)
+    delay(100);
   }
   //  Serial.println(relay);
   //  Serial.println(incoming);

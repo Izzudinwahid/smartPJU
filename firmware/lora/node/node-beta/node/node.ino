@@ -95,6 +95,8 @@ void onReceive(int packetSize) {
     return;                             // skip rest of function
   }
 
+  Serial.println(incoming);
+
   for (int i = 0; i < 3; i++) {
     digitalWrite(pinLora, 1);
     delay(100);
