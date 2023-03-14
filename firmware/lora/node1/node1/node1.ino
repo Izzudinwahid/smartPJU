@@ -553,7 +553,7 @@ void loop() {
     flagSwitch++;
     readSensor();
     if (flagSwitch >= 10) {
-      if (flagSPIFFS >= 100000) {
+      if (flagSPIFFS >= 1000) {
         writeSPIFFS("/datalogging.txt", dataSensor[1]);
         writeSPIFFS("/datarelay.txt", String(statusRelayNode) + "," + String(flagSPIFFS));
         //        readSPIFFS("/datalogging.txt");

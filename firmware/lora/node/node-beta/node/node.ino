@@ -95,8 +95,6 @@ void onReceive(int packetSize) {
     return;                             // skip rest of function
   }
 
-  Serial.println(incoming);
-
   for (int i = 0; i < 3; i++) {
     digitalWrite(pinLora, 1);
     delay(100);
@@ -104,7 +102,6 @@ void onReceive(int packetSize) {
     delay(100);
   }
   //  Serial.println(relay);
-  Serial.println(incoming);
   if (int(sender) == CONSSTART && int(localAddress) != recipientFinal) {
     destination = byte(CONSFINISH);
     destRegRes = senderReqRes;
@@ -555,7 +552,7 @@ void loop() {
     flagSwitch++;
     readSensor();
     if (flagSwitch >= 10) {
-      if (flagSPIFFS >= 100000) {
+      if (flagSPIFFS >= 1000) {
         writeSPIFFS("/datalogging.txt", dataSensor[1]);
         writeSPIFFS("/datarelay.txt", String(statusRelayNode) + "," + String(flagSPIFFS));
         //        readSPIFFS("/datalogging.txt");

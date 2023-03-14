@@ -32,7 +32,7 @@ void readSensor() {
   }
   allDataSensor[0][4] = countLamp;
 
-  if (flagSPIFFS >= 100000) {
+  if (flagSPIFFS >= 1000) {
     writeSPIFFS("/datalogging.txt", String(allDataSensor[0][0]) + "," + String(allDataSensor[0][1]) + "," + String(allDataSensor[0][2]) + "," + String(allDataSensor[0][3]) + "," + String(allDataSensor[0][4]) + "," + String(countLamp) + "," + String(allDataSensor[0][5]));
     writeSPIFFS("/datarelay.txt", String(allDataSensor[0][5]) + "," + String(flagSPIFFS));
     //    readSPIFFS("/datalogging.txt");
