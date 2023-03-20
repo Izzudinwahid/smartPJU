@@ -169,7 +169,7 @@ void cekRelayServer() {
   Serial.print("http:");
   Serial.print('/');
   Serial.print('/');
-  Serial.print("13.228.184.92/baca-data.php?amr_id=");
+  Serial.print("13.228.184.92/baca-data2.php?amr_id=");
   Serial.print(amrId[flagSwitch]); //>>>>>>  variable 1 (temperature)
   Serial.print('"');
   Serial.write(0x0d);
@@ -184,7 +184,7 @@ void cekRelayServer() {
   Serial2.print("http:");
   Serial2.print('/');
   Serial2.print('/');
-  Serial2.print("13.228.184.92/baca-data.php?amr_id=");
+  Serial2.print("13.228.184.92/baca-data2.php?amr_id=");
   Serial2.print(amrId[flagSwitch]); //>>>>>>  variable 1 (temperature)
   Serial2.print('"');
   Serial2.write(0x0d);
@@ -199,7 +199,7 @@ void cekRelayServer() {
   GetResponse(10000);               // respon di simpan kedalam variabel dataMasuk
 
   Serial.println("Full data :");
-  if (dataMasuk.indexOf("+HTTPREAD: 1") > -1) {
+  if (dataMasuk.indexOf("+HTTPREAD:") > -1) {
     relayServer[flagSwitch] = dataMasuk[28];
     dateServer[flagSwitch] = dataMasuk[30];
     Serial.println(dataMasuk[28]);
