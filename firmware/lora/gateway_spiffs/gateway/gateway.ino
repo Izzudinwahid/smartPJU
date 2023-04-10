@@ -15,6 +15,7 @@
 #include <LoRa.h>
 #include <PZEM004Tv30.h>
 #include <WiFi.h>
+#include <esp_wifi.h>
 #include <WiFiClient.h>
 #include <WebServer.h>
 #include <ESPmDNS.h>
@@ -31,7 +32,6 @@ int idNode[3]  = {1, 2, 3};
 int phaseNode[3]  = {1, 1, 1};
 int totNode = 3;
 int flagtotNode = 0;
-float bufferPZEM;
 int countLamp = 0;
 int idDevice[3] = {1, 2, 3};
 int flagidDevice = 0;
@@ -51,7 +51,9 @@ String dataMasuk = "";
 //String Server = "AT+HTTPPARA=\"URL\",\"http://13.228.184.92/Insert.php?amr_id=\"" + String(1) + "&Kwh=" + String(1) + "&Arus=" + String(1) + "&Watt=" + String(1) + "&Tegangan=" + String(1) + "&Status=" + String(1) + "&Biaya=" + String(1) + "&jumlah_lampu=" + String(1) + "&lampu_hidup=" + String (1) + "&lampu_mati=" + String (1);
 String amrId[3] = {"19A20", "19A21", "19A22"};
 int statusRe = 0;
-int jumlahLampu = 0;
+int jumlahLampu = 10;
+int dayaperLampu = 5;
+int bufferPZEM;
 int biaya = 1;
 
 //--------Inisialisasi Sensor PZEM------
@@ -228,8 +230,9 @@ void onReceive(int packetSize) {
 
 
 //---------Inisialiasi OTA Web---------
+uint8_t newMACAddress[] = {0x32, 0xAE, 0xA4, 0x07, 0x0D, 0x14};
 const char *host = "esp32";
-const char *ssid = "SmartPJU-gateway";
+const char *ssid = "SmartPJU-gateway19A20";
 const char *password = "12345678";
 
 WebServer server(80);
@@ -464,7 +467,9 @@ void setup() {
   IPAddress local_ip(192, 168, 1, 1);
   IPAddress local_mask(255, 255, 255, 0);
   IPAddress gateway(192, 168, 1, 1);
-  WiFi.softAP(ssid, password);
+  WiFi.mode(WIFI_AP);
+  esp_wifi_set_mac(ESP_IF_WIFI_AP, &newMACAddress[0]);
+  WiFi.softAP(ssid, password, 1, 1);
   WiFi.softAPConfig(local_ip, gateway, local_mask);
   if (!MDNS.begin(host))
   { // http://esp32.local

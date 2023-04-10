@@ -18987,63 +18987,6 @@ Source: 008-0260-0_E.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="UPM2E100MHD1TO">
-<packages>
-<package name="CAPPRD500W60D1250H2200">
-<circle x="0" y="0" radius="6.25" width="0.127" layer="51"/>
-<circle x="0" y="0" radius="6.25" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="6.5" width="0.05" layer="39"/>
-<text x="-3.25" y="6.95" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.25" y="-8.2" size="1.27" layer="27">&gt;VALUE</text>
-<circle x="-7" y="0" radius="0.1" width="0.2" layer="21"/>
-<circle x="-7" y="0" radius="0.1" width="0.2" layer="51"/>
-<pad name="P" x="-2.5" y="0" drill="0.8" diameter="1.15" shape="square"/>
-<pad name="N" x="2.5" y="0" drill="0.8" diameter="1.15"/>
-</package>
-</packages>
-<symbols>
-<symbol name="UPM2E100MHD1TO">
-<text x="-2.54" y="3.81" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<wire x1="2.286" y1="2.54" x2="2.286" y2="-2.54" width="0.254" layer="94" curve="70"/>
-<wire x1="0.508" y1="2.54" x2="0.508" y2="0" width="0.254" layer="94"/>
-<rectangle x1="-1.173" y1="-1.532" x2="-0.284" y2="-1.405" layer="94"/>
-<rectangle x1="-0.792" y1="-1.913" x2="-0.665" y2="-1.024" layer="94"/>
-<wire x1="0.508" y1="0" x2="0.508" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0.508" y2="0" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="0" x2="1.524" y2="0" width="0.1524" layer="94"/>
-<pin name="P" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-<pin name="N" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="UPM2E100MHD1TO" prefix="C">
-<description>CAP ALUM 10UF 20% 250V RADIAL  &lt;a href="https://pricing.snapeda.com/parts/UPM2E100MHD1TO/Nichicon/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="UPM2E100MHD1TO" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="CAPPRD500W60D1250H2200">
-<connects>
-<connect gate="G$1" pin="N" pad="N"/>
-<connect gate="G$1" pin="P" pad="P"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="In Stock"/>
-<attribute name="DESCRIPTION" value=" 10 µF 250 V Aluminum Electrolytic Capacitors Radial, Can - 5000 Hrs @ 105°C "/>
-<attribute name="MF" value="Nichicon"/>
-<attribute name="MP" value="UPM2E100MHD1TO"/>
-<attribute name="PACKAGE" value="Radial Nichicon"/>
-<attribute name="PRICE" value="None"/>
-<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/UPM2E100MHD1TO/?ref=eda"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="1N5819HW-7">
 <packages>
 <package name="SOD3715X145N">
@@ -19899,6 +19842,93 @@ Source: 008-0260-0_E.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SLA-05VDC-SL-C">
+<description>&lt;Relays General Purpose Non Latching 5VDC SPDT 30A (250VAC) Max Plugin RoHS&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SLA05VDCSLC">
+<description>&lt;b&gt;SLA-05VDC-SL-C-4&lt;/b&gt;&lt;br&gt;
+</description>
+<pad name="1" x="0" y="0" drill="2" diameter="3"/>
+<pad name="2" x="8.9" y="15.2" drill="2" diameter="3"/>
+<pad name="3" x="-8.9" y="17.7" drill="2" diameter="3"/>
+<pad name="4" x="-8.9" y="25.3" drill="2" diameter="3"/>
+<pad name="5" x="5.1" y="2.5" drill="1" diameter="1.5"/>
+<pad name="6" x="-5.1" y="2.5" drill="1" diameter="1.5"/>
+<text x="-0.5" y="12" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="-0.5" y="12" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="13.8" y1="28.5" x2="-14.8" y2="28.5" width="0.1" layer="51"/>
+<wire x1="-14.8" y1="28.5" x2="-14.8" y2="-4.5" width="0.1" layer="51"/>
+<wire x1="-14.8" y1="-4.5" x2="13.8" y2="-4.5" width="0.1" layer="51"/>
+<wire x1="13.8" y1="-4.5" x2="13.8" y2="28.5" width="0.1" layer="51"/>
+<wire x1="-14.3" y1="28" x2="13.3" y2="28" width="0.2" layer="51"/>
+<wire x1="13.3" y1="28" x2="13.3" y2="15.2" width="0.2" layer="51"/>
+<wire x1="13.3" y1="15.2" x2="11.9" y2="15.2" width="0.2" layer="51"/>
+<wire x1="11.9" y1="15.2" x2="11.9" y2="-4" width="0.2" layer="51"/>
+<wire x1="11.9" y1="-4" x2="-8.9" y2="-4" width="0.2" layer="51"/>
+<wire x1="-8.9" y1="-4" x2="-8.9" y2="15.2" width="0.2" layer="51"/>
+<wire x1="-8.9" y1="15.2" x2="-14.3" y2="15.2" width="0.2" layer="51"/>
+<wire x1="-14.3" y1="15.2" x2="-14.3" y2="28" width="0.2" layer="51"/>
+<wire x1="13.3" y1="28" x2="13.3" y2="15.2" width="0.1" layer="21"/>
+<wire x1="13.3" y1="15.2" x2="11.9" y2="15.2" width="0.1" layer="21"/>
+<wire x1="11.9" y1="15.2" x2="11.9" y2="-4" width="0.1" layer="21"/>
+<wire x1="11.9" y1="-4" x2="-8.88" y2="-4" width="0.1" layer="21"/>
+<wire x1="-8.88" y1="-4" x2="-8.88" y2="15.2" width="0.1" layer="21"/>
+<wire x1="-8.88" y1="15.2" x2="-14.3" y2="15.2" width="0.1" layer="21"/>
+<wire x1="-14.3" y1="15.2" x2="-14.3" y2="28" width="0.1" layer="21"/>
+<wire x1="-14.3" y1="28" x2="13.3" y2="28" width="0.1" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SLA-05VDC-SL-C">
+<wire x1="5.08" y1="2.54" x2="27.94" y2="2.54" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-7.62" x2="27.94" y2="2.54" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<text x="29.21" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="29.21" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="COM_1" x="0" y="0" length="middle"/>
+<pin name="COM_2" x="0" y="-2.54" length="middle"/>
+<pin name="NO" x="0" y="-5.08" length="middle"/>
+<pin name="NC" x="33.02" y="0" length="middle" direction="nc" rot="R180"/>
+<pin name="COIL_1" x="33.02" y="-2.54" length="middle" rot="R180"/>
+<pin name="COIL_2" x="33.02" y="-5.08" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SLA-05VDC-SL-C" prefix="K">
+<description>&lt;b&gt;Relays General Purpose Non Latching 5VDC SPDT 30A (250VAC) Max Plugin RoHS&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05VDC-SL-C_C87367.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SLA-05VDC-SL-C" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SLA05VDCSLC">
+<connects>
+<connect gate="G$1" pin="COIL_1" pad="5"/>
+<connect gate="G$1" pin="COIL_2" pad="6"/>
+<connect gate="G$1" pin="COM_1" pad="1"/>
+<connect gate="G$1" pin="COM_2" pad="2"/>
+<connect gate="G$1" pin="NC" pad="4"/>
+<connect gate="G$1" pin="NO" pad="3"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="" constant="no"/>
+<attribute name="DESCRIPTION" value="Relays General Purpose Non Latching 5VDC SPDT 30A (250VAC) Max Plugin RoHS" constant="no"/>
+<attribute name="HEIGHT" value="20.4mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Songle Relay" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="SLA-05VDC-SL-C" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -19948,7 +19978,6 @@ Source: 008-0260-0_E.pdf</description>
 <part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10uF"/>
 <part name="PS1" library="HLK-5M05" deviceset="HLK-5M05" device=""/>
-<part name="C12" library="UPM2E100MHD1TO" deviceset="UPM2E100MHD1TO" device=""/>
 <part name="D1" library="1N5819HW-7" deviceset="1N5819HW-7" device=""/>
 <part name="D2" library="1N5819HW-7" deviceset="1N5819HW-7" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
@@ -19979,6 +20008,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="U3" library="ESP32-WROOM-32D" deviceset="ESP32-WROOM-32D" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FUSE-KOTAK1" library="FUSE-KOTAK" deviceset="FUSE-KOTAK" device=""/>
+<part name="K1" library="SLA-05VDC-SL-C" deviceset="SLA-05VDC-SL-C" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20134,9 +20164,6 @@ Source: 008-0260-0_E.pdf</description>
 <attribute name="NAME" x="152.4" y="262.89" size="1.778" layer="95"/>
 <attribute name="VALUE" x="152.4" y="248.92" size="1.778" layer="96"/>
 </instance>
-<instance part="C12" gate="G$1" x="142.24" y="256.54" smashed="yes" rot="R270">
-<attribute name="NAME" x="146.05" y="259.08" size="1.778" layer="95" rot="R270"/>
-</instance>
 <instance part="D1" gate="G$1" x="187.96" y="259.08" smashed="yes">
 <attribute name="NAME" x="182.88" y="261.62" size="1.778" layer="95"/>
 </instance>
@@ -20222,6 +20249,10 @@ Source: 008-0260-0_E.pdf</description>
 <attribute name="VALUE" x="228.6" y="314.96" size="1.778" layer="96"/>
 </instance>
 <instance part="FUSE-KOTAK1" gate="G$1" x="139.7" y="274.32" smashed="yes" rot="R90"/>
+<instance part="K1" gate="G$1" x="104.14" y="134.62" smashed="yes">
+<attribute name="NAME" x="133.35" y="142.24" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="133.35" y="139.7" size="1.778" layer="96" align="center-left"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -20796,23 +20827,17 @@ Source: 008-0260-0_E.pdf</description>
 <net name="N$1" class="0">
 <segment>
 <pinref part="PS1" gate="G$1" pin="AC1"/>
-<pinref part="C12" gate="G$1" pin="P"/>
-<wire x1="147.32" y1="259.08" x2="142.24" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="259.08" x2="139.7" y2="259.08" width="0.1524" layer="91"/>
 <pinref part="FUSE-KOTAK1" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="259.08" x2="139.7" y2="259.08" width="0.1524" layer="91"/>
 <wire x1="139.7" y1="259.08" x2="139.7" y2="261.62" width="0.1524" layer="91"/>
-<junction x="142.24" y="259.08"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="PS1" gate="G$1" pin="AC2"/>
-<pinref part="C12" gate="G$1" pin="N"/>
 <wire x1="147.32" y1="254" x2="147.32" y2="251.46" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="251.46" x2="142.24" y2="251.46" width="0.1524" layer="91"/>
-<junction x="142.24" y="251.46"/>
 <pinref part="TB7.1" gate="G$1" pin="T1"/>
-<wire x1="142.24" y1="251.46" x2="132.08" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="251.46" x2="132.08" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">

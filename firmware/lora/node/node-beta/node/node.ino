@@ -2,6 +2,7 @@
 #include <LoRa.h>
 #include <PZEM004Tv30.h>
 #include <WiFi.h>
+#include <esp_wifi.h>
 #include <WiFiClient.h>
 #include <WebServer.h>
 #include <ESPmDNS.h>
@@ -20,9 +21,10 @@ int statusRelayNode = 0;
 int HSBtimer, LSBtimer;
 int HSBCONSTANTA, LSBCONSTANTA;
 int flag = 0;
-float bufferPZEM;
+int bufferPZEM;
 //int countPZEM = 0;
 int countLamp = 0;
+int dayaperLampu = 5;
 unsigned int flagSPIFFS = 0;
 int relaySPIFFS = 0;
 int flagSwitch = 0;
@@ -248,8 +250,9 @@ void onReceive(int packetSize) {
 
 
 //---------Inisialiasi OTA Web---------
+uint8_t newMACAddress[] = {0x32, 0xAE, 0xA4, 0x07, 0x0D, 0x15};
 const char *host = "esp32";
-const char *ssid = "smartPJU-node2";
+const char *ssid = "smartPJU-node19A21";
 const char *password = "12345678";
 
 WebServer server(80);
@@ -478,7 +481,9 @@ void setup() {
   IPAddress local_ip(192, 168, 1, 1);
   IPAddress local_mask(255, 255, 255, 0);
   IPAddress gateway(192, 168, 1, 1);
-  WiFi.softAP(ssid, password);
+  WiFi.mode(WIFI_AP);
+  esp_wifi_set_mac(ESP_IF_WIFI_AP, &newMACAddress[0]);
+  WiFi.softAP(ssid, password, 1, 1);
   WiFi.softAPConfig(local_ip, gateway, local_mask);
   if (!MDNS.begin(host))
   { // http://esp32.local
@@ -551,8 +556,8 @@ void loop() {
   if (millis() - previousMillis > interval ) {
     flagSwitch++;
     readSensor();
-    if (flagSwitch >= 10) {
-      if (flagSPIFFS >= 1000) {
+    if (flagSwitch >= 1) {
+      if (flagSPIFFS >= 100) {
         writeSPIFFS("/datalogging.txt", dataSensor[1]);
         writeSPIFFS("/datarelay.txt", String(statusRelayNode) + "," + String(flagSPIFFS));
         //        readSPIFFS("/datalogging.txt");
