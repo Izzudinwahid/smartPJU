@@ -37,7 +37,7 @@ if (isnan(voltPZEM)) {
     allDataSensor[0][2] = powerPZEM;
     allDataSensor[0][3] = energyPZEM;
   }
-  allDataSensor[0][4] = countLamp;
+  allDataSensor[0][4] = 0;
 
   if (flagSPIFFS >= 100) {
   writeSPIFFS("/datalogging.txt", String(allDataSensor[0][0]) + "," + String(allDataSensor[0][1]) + "," + String(allDataSensor[0][2]) + "," + String(allDataSensor[0][3]) + "," + String(allDataSensor[0][4]) + "," + String(countLamp) + "," + String(allDataSensor[0][5]));

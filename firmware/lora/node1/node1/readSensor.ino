@@ -30,6 +30,8 @@ void readSensor() {
     countLamp++;
   }
 
+  countLamp = 0;
+
   if (isnan(voltPZEM)) {
     voltPZEM = 0;
     currentPZEM = 0;

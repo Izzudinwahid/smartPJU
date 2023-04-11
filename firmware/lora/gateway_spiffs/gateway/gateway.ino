@@ -51,7 +51,7 @@ String dataMasuk = "";
 //String Server = "AT+HTTPPARA=\"URL\",\"http://13.228.184.92/Insert.php?amr_id=\"" + String(1) + "&Kwh=" + String(1) + "&Arus=" + String(1) + "&Watt=" + String(1) + "&Tegangan=" + String(1) + "&Status=" + String(1) + "&Biaya=" + String(1) + "&jumlah_lampu=" + String(1) + "&lampu_hidup=" + String (1) + "&lampu_mati=" + String (1);
 String amrId[3] = {"19A20", "19A21", "19A22"};
 int statusRe = 0;
-int jumlahLampu = 10;
+int jumlahLampu = 0;
 int dayaperLampu = 5;
 int bufferPZEM;
 int biaya = 1;
