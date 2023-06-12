@@ -19883,7 +19883,7 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05
 <part name="D19" library="SML-LXT0805IW-TR" deviceset="SML-LXT0805IW-TR" device=""/>
 <part name="R46" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="D20" library="SML-LXT0805IW-TR" deviceset="SML-LXT0805IW-TR" device=""/>
-<part name="R47" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
+<part name="R47" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1k"/>
 <part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10uF"/>
 <part name="PS1" library="HLK-5M05" deviceset="HLK-5M05" device=""/>
@@ -19893,7 +19893,7 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="330"/>
 <part name="U2" library="PC817X2NIP0F" deviceset="PC817X2NIP0F" device=""/>
-<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
+<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1k"/>
 <part name="D3" library="US1M-13" deviceset="US1M-13" device=""/>
 <part name="Q1" library="S9013" deviceset="S9013" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -19906,7 +19906,7 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05
 <part name="TB7.3" library="TB7.62" deviceset="TB7.62" device=""/>
 <part name="TB7.4" library="TB7.62" deviceset="TB7.62" device=""/>
 <part name="D5" library="SML-LXT0805IW-TR" deviceset="SML-LXT0805IW-TR" device=""/>
-<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
+<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1k"/>
 <part name="MINI1" library="mini360" deviceset="MINI360" device=""/>
 <part name="SIM800L1" library="sim800l" deviceset="SIM800L" device=""/>
 <part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10uF"/>

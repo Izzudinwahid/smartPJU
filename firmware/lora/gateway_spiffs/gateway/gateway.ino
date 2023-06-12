@@ -85,7 +85,7 @@ byte localAddress = 0x01;     // address of this device
 byte destination = 0x02;      // destination to send to
 int destinationFinal = 0x03;
 unsigned long interval = 500;          // interval between sends
-unsigned long    = 0;  // will store last time message sent
+unsigned long previousMillis = 0;  // will store last time message sent
 
 
 
