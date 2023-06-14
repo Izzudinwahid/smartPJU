@@ -19899,7 +19899,6 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="D4" library="SML-LXT0805IW-TR" deviceset="SML-LXT0805IW-TR" device=""/>
-<part name="TB7.1" library="TB7.62" deviceset="TB7.62" device=""/>
 <part name="TB7.2" library="TB7.62" deviceset="TB7.62" device=""/>
 <part name="PZEM004T1" library="PZEM004T" deviceset="PZEM004T" device=""/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -20114,7 +20113,6 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05
 <attribute name="NAME" x="45.21513125" y="186.42973125" size="1.780740625" layer="95" rot="R180"/>
 <attribute name="VALUE" x="45.21368125" y="194.31315" size="1.77946875" layer="96" rot="R180"/>
 </instance>
-<instance part="TB7.1" gate="G$1" x="124.46" y="254" smashed="yes" rot="R90"/>
 <instance part="TB7.2" gate="G$1" x="144.78" y="190.5" smashed="yes" rot="R270"/>
 <instance part="PZEM004T1" gate="G$1" x="193.04" y="205.74" smashed="yes"/>
 <instance part="GND6" gate="1" x="218.44" y="205.74" smashed="yes">
@@ -20741,7 +20739,6 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05
 <segment>
 <pinref part="PS1" gate="G$1" pin="AC2"/>
 <wire x1="147.32" y1="254" x2="147.32" y2="251.46" width="0.1524" layer="91"/>
-<pinref part="TB7.1" gate="G$1" pin="T1"/>
 <wire x1="147.32" y1="251.46" x2="132.08" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -20929,7 +20926,6 @@ Source: &lt;a href="https://datasheet.lcsc.com/szlcsc/Ningbo-Songle-Relay-SLA-05
 <net name="N$14" class="0">
 <segment>
 <pinref part="FUSE-KOTAK1" gate="G$1" pin="1"/>
-<pinref part="TB7.1" gate="G$1" pin="T2"/>
 <wire x1="137.16" y1="261.62" x2="132.08" y2="261.62" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="261.62" x2="132.08" y2="256.54" width="0.1524" layer="91"/>
 </segment>

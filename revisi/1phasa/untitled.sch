@@ -19766,10 +19766,6 @@ Source: 008-0260-0_E.pdf</description>
 <pad name="6" x="-5.1" y="2.5" drill="1" diameter="1.5"/>
 <text x="-0.5" y="12" size="1.27" layer="25" align="center">&gt;NAME</text>
 <text x="-0.5" y="12" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="13.8" y1="28.5" x2="-14.8" y2="28.5" width="0.1" layer="51"/>
-<wire x1="-14.8" y1="28.5" x2="-14.8" y2="-4.5" width="0.1" layer="51"/>
-<wire x1="-14.8" y1="-4.5" x2="13.8" y2="-4.5" width="0.1" layer="51"/>
-<wire x1="13.8" y1="-4.5" x2="13.8" y2="28.5" width="0.1" layer="51"/>
 <wire x1="-14.3" y1="28" x2="13.3" y2="28" width="0.2" layer="51"/>
 <wire x1="13.3" y1="28" x2="13.3" y2="15.2" width="0.2" layer="51"/>
 <wire x1="13.3" y1="15.2" x2="11.9" y2="15.2" width="0.2" layer="51"/>
@@ -19778,14 +19774,14 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="-8.9" y1="-4" x2="-8.9" y2="15.2" width="0.2" layer="51"/>
 <wire x1="-8.9" y1="15.2" x2="-14.3" y2="15.2" width="0.2" layer="51"/>
 <wire x1="-14.3" y1="15.2" x2="-14.3" y2="28" width="0.2" layer="51"/>
-<wire x1="13.3" y1="28" x2="13.3" y2="15.2" width="0.1" layer="21"/>
-<wire x1="13.3" y1="15.2" x2="11.9" y2="15.2" width="0.1" layer="21"/>
-<wire x1="11.9" y1="15.2" x2="11.9" y2="-4" width="0.1" layer="21"/>
-<wire x1="11.9" y1="-4" x2="-8.88" y2="-4" width="0.1" layer="21"/>
-<wire x1="-8.88" y1="-4" x2="-8.88" y2="15.2" width="0.1" layer="21"/>
-<wire x1="-8.88" y1="15.2" x2="-14.3" y2="15.2" width="0.1" layer="21"/>
-<wire x1="-14.3" y1="15.2" x2="-14.3" y2="28" width="0.1" layer="21"/>
-<wire x1="-14.3" y1="28" x2="13.3" y2="28" width="0.1" layer="21"/>
+<wire x1="13.3" y1="28" x2="13.3" y2="15.2" width="0.1" layer="22"/>
+<wire x1="13.3" y1="15.2" x2="11.9" y2="15.2" width="0.1" layer="22"/>
+<wire x1="11.9" y1="15.2" x2="11.9" y2="-4" width="0.1" layer="22"/>
+<wire x1="11.9" y1="-4" x2="-8.88" y2="-4" width="0.1" layer="22"/>
+<wire x1="-8.88" y1="-4" x2="-8.88" y2="15.2" width="0.1" layer="22"/>
+<wire x1="-8.88" y1="15.2" x2="-14.3" y2="15.2" width="0.1" layer="22"/>
+<wire x1="-14.3" y1="15.2" x2="-14.3" y2="28" width="0.1" layer="22"/>
+<wire x1="-14.3" y1="28" x2="13.3" y2="28" width="0.1" layer="22"/>
 </package>
 </packages>
 <symbols>

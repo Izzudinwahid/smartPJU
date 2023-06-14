@@ -2507,8 +2507,8 @@ design rules under a new name.</description>
 <attribute name="DESCRIPTION" value=" Optoisolator Transistor Output 5000Vrms 1 Channel 4-SMD " x="-36.09193125" y="-28.854778125" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="Sharp Microelectronics" x="-36.09193125" y="-28.854778125" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MP" value="PC817X2NIP0F" x="-36.09193125" y="-28.854778125" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="50.83386875" y="-1.9195375" size="1.27238125" layer="25" rot="R270"/>
 <attribute name="NAME" x="50.8300875" y="-1.922946875" size="1.27083125" layer="25" rot="R270"/>
+<attribute name="NAME" x="50.83386875" y="-1.9195375" size="1.27238125" layer="25" rot="R270"/>
 <attribute name="PACKAGE" value="SMD-4 Sharp Microelectronics" x="-36.09193125" y="-28.854778125" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="PRICE" value="None" x="-36.09193125" y="-28.854778125" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
@@ -3006,12 +3006,12 @@ design rules under a new name.</description>
 <signal name="SS_LORA">
 <contactref element="LORA-NICERF-V1" pad="NSS"/>
 <contactref element="U3" pad="29"/>
-<wire x1="1.836453125" y1="50.735496875" x2="12.011121875" y2="50.735496875" width="0.254" layer="1"/>
-<wire x1="12.011121875" y1="50.735496875" x2="12.14550625" y2="50.86988125" width="0.254" layer="1"/>
-<via x="12.14550625" y="50.86988125" extent="1-16" drill="0.3"/>
+<wire x1="1.836453125" y1="50.735496875" x2="12.042640625" y2="50.735496875" width="0.254" layer="1"/>
+<wire x1="12.042640625" y1="50.735496875" x2="12.1239375" y2="50.6542" width="0.254" layer="1"/>
+<via x="12.1239375" y="50.6542" extent="1-16" drill="0.3"/>
 <wire x1="36.97423125" y1="51.193384375" x2="36.083225" y2="50.302378125" width="0.254" layer="16"/>
-<wire x1="36.083225" y1="50.302378125" x2="12.713009375" y2="50.302378125" width="0.254" layer="16"/>
-<wire x1="12.14550625" y1="50.86988125" x2="12.713009375" y2="50.302378125" width="0.254" layer="16"/>
+<wire x1="36.083225" y1="50.302378125" x2="12.475759375" y2="50.302378125" width="0.254" layer="16"/>
+<wire x1="12.1239375" y1="50.6542" x2="12.475759375" y2="50.302378125" width="0.254" layer="16"/>
 <via x="36.97423125" y="51.193384375" extent="1-16" drill="0.35"/>
 <wire x1="37.565184375" y1="51.8295375" x2="36.97423125" y2="51.238584375" width="0.254" layer="1"/>
 <wire x1="36.97423125" y1="51.193384375" x2="36.97423125" y2="51.238584375" width="0.254" layer="1"/>
